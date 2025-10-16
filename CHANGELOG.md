@@ -7,6 +7,45 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.1] - 2025-10-16
+
+### Added
+- **AI Performance Analysis Report** (`paper_development/AI_PERFORMANCE_ANALYSIS.md`)
+  - Comprehensive 54KB analysis comparing AI vs human research workflows
+  - 220-410x productivity acceleration demonstrated
+  - Human equivalent: 280-520 hours (7-13 weeks full-time)
+  - Quality assessment: Publication-ready (Grade A-, 93/100)
+  - Cost savings: 87-88% ($27K-$58K saved)
+
+### Fixed
+- **Mermaid Diagram Parsing Errors**
+  - Fixed pipe character (`|`) issues in diagram node labels
+  - Updated diagram1.mmd: Multi-DSL list and Semiring selection
+  - Updated diagram5.mmd: ROC trade-off table and probabilistic formula
+  - Updated diagram10.mmd: Performance breakdown table (6 fixes)
+  - Applied all fixes to all_diagrams.md compilation
+- **Diagram Orientation**
+  - Changed diagrams 2, 3, 9 from Left-to-Right (LR) to Top-Down (TD)
+  - Better fit for standard page width in publications
+- **Documentation Structure**
+  - Updated PROJECT_INDEX.md to accurately reflect filesystem (5 directories, 60 files)
+  - Fixed directory structure listing to match actual layout
+  - Removed outdated PATH_STRUCTURE.md file (wrong paths, obsolete content)
+- **Conference Targets**
+  - Updated AAAI 2026 (August 2025) → AAAI 2027 (August 2026)
+  - Updated IJCAI 2026 → IJCAI 2027
+  - Updated NeurIPS 2025 → NeurIPS 2026
+  - All submission deadlines now reflect realistic future dates
+
+### Changed
+- README.md: File names formatted as clickable markdown links
+- PROJECT_INDEX.md: Accurate file counts and structure (60 files, ~27,500 lines)
+- All references to PATH_STRUCTURE.md removed from documentation
+
+### Commits Since v1.0.0
+- 10 commits with bug fixes and documentation improvements
+- All changes pushed to both `main` and `develop` branches
+
 ## [1.0.0] - 2025-10-16
 
 ### Added
