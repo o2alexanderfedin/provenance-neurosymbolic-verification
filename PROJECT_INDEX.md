@@ -767,7 +767,7 @@ For researchers wanting to use this work:
 
 ---
 
-**Last Updated:** 2024-12-20
+**Last Updated:** 2025-10-16
 
 **Project Status:** Research complete, experimental validation planned, ready for submission
 

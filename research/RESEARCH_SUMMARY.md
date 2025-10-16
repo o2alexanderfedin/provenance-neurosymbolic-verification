@@ -4,7 +4,7 @@
 
 # LLM Formal Code Generation Research: Comprehensive Summary
 
-**Research Date**: 2024-12-20<br/>
+**Research Date**: 2025-10-16<br/>
 **Output Location**: `research/`<br/>
 **Files Generated**: 17 research documents
 
