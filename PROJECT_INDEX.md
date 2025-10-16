@@ -36,54 +36,6 @@ This repository contains a comprehensive academic research project investigating
 ```
 provenance-neurosymbolic-verification/
 │
-├── Root Documentation (9 files)
-│   ├── README.md                          # Project overview
-│   ├── PROJECT_INDEX.md                   # This file - Complete index
-│   ├── QUICK_START.md                     # Role-based quick start guide
-│   ├── VERIFICATION.md                    # Quality checklist
-│   ├── PATH_STRUCTURE.md                  # Path reference guide
-│   ├── CHANGELOG.md                       # Version history
-│   ├── LICENSE                            # MIT License
-│   └── VERSION                            # Version number (1.0.0)
-│
-├── Paper Files (4 files)
-│   ├── paper_main.md                      # Complete paper (11,366 words)
-│   ├── PAPER_SUMMARY.md                   # Executive summary
-│   ├── paper_metadata.json                # Structured metadata
-│   └── references_compiled.bib            # BibTeX references (55+ entries)
-│
-├── research/                              # Core Research (17 files)
-│   ├── RESEARCH_SUMMARY.md                # Executive overview
-│   ├── neuro_symbolic_systems.md          # 18 systems surveyed
-│   ├── benchmarks.md                      # 14 benchmarks analyzed
-│   ├── architectures.md                   # 5 architecture patterns
-│   ├── dsl_taxonomy.md                    # 16 DSLs across 7 categories
-│   ├── dsl_design_patterns.md             # 15 integration patterns
-│   ├── dsl_tradeoffs.md                   # Comparison matrices
-│   ├── llm_performance.md                 # Model performance matrix
-│   ├── generation_techniques.md           # Prompting & fine-tuning
-│   ├── error_analysis.md                  # 13 error categories
-│   ├── explanation_methods.md             # Technique taxonomy
-│   ├── provenance_systems.md              # Semiring frameworks
-│   ├── trust_verification.md              # Soundness & certification
-│   ├── references_neurosymbolic.md        # Neuro-symbolic references
-│   ├── references_dsl.md                  # DSL references
-│   ├── references_codegen.md              # Code generation references
-│   └── references_explanation.md          # Provenance references
-│
-├── paper_development/                     # Paper Synthesis (4 files)
-│   ├── synthesis.md                       # Key themes & contradictions
-│   ├── key_results.md                     # Top 20 quantitative findings
-│   ├── research_gaps.md                   # Experimental validation needs
-│   └── paper_outline.md                   # Detailed paper structure
-│
-├── experimental_design/                   # Experimental Design (5 files)
-│   ├── experimental_design.md             # Complete methodology
-│   ├── benchmark_design.md                # 5-level temporal benchmark
-│   ├── evaluation_metrics.md              # Metrics & statistical tests
-│   ├── architecture_diagrams.md           # Diagram specifications
-│   └── EXPERIMENTAL_VALIDATION_SUMMARY.md # Validation summary
-│
 ├── diagrams/                              # Publication Diagrams (13 files)
 │   ├── diagram1.mmd                       # Overall system architecture
 │   ├── diagram2.mmd                       # Temporal reasoning architecture
@@ -98,20 +50,65 @@ provenance-neurosymbolic-verification/
 │   ├── all_diagrams.md                    # All diagrams compiled
 │   └── README.md                          # Rendering instructions
 │
-└── prototype/                             # Working Implementation (11 files)
-    ├── temporal_core.py                   # Allen's Interval Algebra (~650 LOC)
-    ├── llm_interface.py                   # Mock LLM with errors (~600 LOC)
-    ├── hybrid_reasoner.py                 # Main integration layer (~600 LOC)
-    ├── provenance.py                      # Provenance tracking (~500 LOC)
-    ├── test_cases.py                      # 20 temporal test cases (~650 LOC)
-    ├── run_experiments.py                 # Experimental evaluation (~400 LOC)
-    ├── test_cases.json                    # Test suite export
-    ├── requirements.txt                   # Dependencies (none!)
-    ├── README.md                          # Setup & usage guide
-    ├── EXAMPLE_OUTPUT.md                  # Example system outputs
-    └── PROTOTYPE_SUMMARY.md               # High-level overview
+├── experimental_design/                   # Experimental Design (5 files)
+│   ├── architecture_diagrams.md           # Diagram specifications
+│   ├── benchmark_design.md                # 5-level temporal benchmark
+│   ├── evaluation_metrics.md              # Metrics & statistical tests
+│   ├── experimental_design.md             # Complete methodology
+│   └── EXPERIMENTAL_VALIDATION_SUMMARY.md # Validation summary
+│
+├── paper_development/                     # Paper Synthesis (4 files)
+│   ├── key_results.md                     # Top 20 quantitative findings
+│   ├── paper_outline.md                   # Detailed paper structure
+│   ├── research_gaps.md                   # Experimental validation needs
+│   └── synthesis.md                       # Key themes & contradictions
+│
+├── prototype/                             # Working Implementation (11 files)
+│   ├── EXAMPLE_OUTPUT.md                  # Example system outputs
+│   ├── hybrid_reasoner.py                 # Main integration layer (~600 LOC)
+│   ├── llm_interface.py                   # Mock LLM with errors (~600 LOC)
+│   ├── PROTOTYPE_SUMMARY.md               # High-level overview
+│   ├── provenance.py                      # Provenance tracking (~500 LOC)
+│   ├── README.md                          # Setup & usage guide
+│   ├── requirements.txt                   # Dependencies (none!)
+│   ├── run_experiments.py                 # Experimental evaluation (~400 LOC)
+│   ├── temporal_core.py                   # Allen's Interval Algebra (~650 LOC)
+│   ├── test_cases.json                    # Test suite export
+│   └── test_cases.py                      # 20 temporal test cases (~650 LOC)
+│
+├── research/                              # Core Research (17 files)
+│   ├── architectures.md                   # 5 architecture patterns
+│   ├── benchmarks.md                      # 14 benchmarks analyzed
+│   ├── dsl_design_patterns.md             # 15 integration patterns
+│   ├── dsl_taxonomy.md                    # 16 DSLs across 7 categories
+│   ├── dsl_tradeoffs.md                   # Comparison matrices
+│   ├── error_analysis.md                  # 13 error categories
+│   ├── explanation_methods.md             # Technique taxonomy
+│   ├── generation_techniques.md           # Prompting & fine-tuning
+│   ├── llm_performance.md                 # Model performance matrix
+│   ├── neuro_symbolic_systems.md          # 18 systems surveyed
+│   ├── provenance_systems.md              # Semiring frameworks
+│   ├── references_codegen.md              # Code generation references
+│   ├── references_dsl.md                  # DSL references
+│   ├── references_explanation.md          # Provenance references
+│   ├── references_neurosymbolic.md        # Neuro-symbolic references
+│   ├── RESEARCH_SUMMARY.md                # Executive overview
+│   └── trust_verification.md              # Soundness & certification
+│
+├── CHANGELOG.md                           # Version history
+├── LICENSE                                # MIT License
+├── paper_main.md                          # Complete paper (11,366 words)
+├── paper_metadata.json                    # Structured metadata
+├── PAPER_SUMMARY.md                       # Executive summary
+├── PATH_STRUCTURE.md                      # Path reference guide
+├── PROJECT_INDEX.md                       # This file - Complete index
+├── QUICK_START.md                         # Role-based quick start guide
+├── README.md                              # Project overview
+├── references_compiled.bib                # BibTeX references (55+ entries)
+├── VERIFICATION.md                        # Quality checklist
+└── VERSION                                # Version number (1.0.0)
 
-Total: 6 directories, 61 files (~27,785 lines)
+Total: 5 directories, 61 files (~27,785 lines)
 ```
 
 ---
