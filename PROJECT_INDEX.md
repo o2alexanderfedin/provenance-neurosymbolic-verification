@@ -367,7 +367,7 @@ Total: 5 directories, 60 files (~27,500 lines)
 
 **Title:** Provenance-Guided Neuro-Symbolic Reasoning: Integrating Large Language Models with Formal Verification for Safety-Critical Applications
 
-**Authors:** [To be filled - currently placeholders]
+**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®
 
 **Abstract:** 246 words summarizing motivation, contributions, and impact
 
@@ -742,10 +742,10 @@ Special thanks to the LLM + formal methods research community for open science p
 ```bibtex
 @inproceedings{provenance-neuro-symbolic-2026,
   title={Provenance-Guided Neuro-Symbolic Reasoning: Integrating Large Language Models with Formal Verification for Safety-Critical Applications},
-  author={[Authors to be filled]},
+  author={Fedin, Alex and AI Hive},
   booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
-  year={2026},
-  volume={40},
+  year={2027},
+  volume={41},
   note={[Update after acceptance]}
 }
 ```

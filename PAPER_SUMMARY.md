@@ -2,6 +2,7 @@
 
 ## Summary Report
 
+**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®<br/>
 **Date Completed:** October 15, 2025
 **Total Writing Time:** Comprehensive research synthesis and paper composition
 **Output Files:** 4 files (main paper, BibTeX references, metadata JSON, this summary)

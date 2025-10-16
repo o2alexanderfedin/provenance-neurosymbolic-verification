@@ -4,6 +4,8 @@
 
 # Experimental Validation Architecture - Summary
 
+**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®
+
 ## Overview
 
 This directory contains comprehensive experimental validation specifications for the neuro-symbolic AI paper. All work has been saved to `./` as requested.
@@ -475,9 +477,9 @@ This directory contains comprehensive experimental validation specifications for
 ```bibtex
 @inproceedings{neurosymbolic2026,
   title={Provenance-Guided Neuro-Symbolic Reasoning: Integrating LLMs with Formal Verification for Safety-Critical Applications},
-  author={[Authors]},
+  author={Fedin, Alex and AI Hive},
   booktitle={AAAI Conference on Artificial Intelligence},
-  year={2026}
+  year={2027}
 }
 ```
 
@@ -485,7 +487,7 @@ This directory contains comprehensive experimental validation specifications for
 ```bibtex
 @dataset{temporal_benchmark2026,
   title={Temporal Reasoning Benchmark: 5-Level Evaluation Suite},
-  author={[Authors]},
+  author={Fedin, Alex and AI Hive},
   year={2026},
   publisher={Zenodo},
   doi={10.5281/zenodo.[ID]}
