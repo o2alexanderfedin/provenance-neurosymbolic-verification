@@ -18,7 +18,7 @@ This document contains all 10 diagrams for the neuro-symbolic AI academic paper 
 
 ```mermaid
 flowchart TD
-    A[Natural Language Problem Description<br/>Example: Find the shortest path in the graph<br/>where all edges have weight less than 10<br/>and the path avoids nodes A and B] --> B[LLM Semantic Parser Fine-Tuned<br/>Multi-DSL: Prolog | ASP | SMT-LIB | PDDL | Datalog]
+    A[Natural Language Problem Description<br/>Example: Find the shortest path in the graph<br/>where all edges have weight less than 10<br/>and the path avoids nodes A and B] --> B["LLM Semantic Parser Fine-Tuned<br/>Multi-DSL: Prolog, ASP, SMT-LIB, PDDL, Datalog"]
 
     B --> B1[Uncertainty Quantification]
     B1 --> B1a[LLM Confidence Score<br/>softmax probabilities]
@@ -50,7 +50,7 @@ flowchart TD
     F3 --> G
     F4 --> G
 
-    G --> G1[Semiring Selection:<br/>ℕ[X] polynomial | Boolean why | Custom temporal]
+    G --> G1["Semiring Selection:<br/>ℕ[X] polynomial, Boolean why, Custom temporal"]
     G1 --> G2[Polynomial Construction<br/>During Symbolic Execution]
     G2 --> G3[Provenance Verification<br/>Homomorphism Check]
     G3 --> H[Explanation Generator]
@@ -343,9 +343,9 @@ flowchart TD
     K -.->|Refinement Loop| B
     L --> F1
 
-    M[ROC Trade-off Analysis:<br/>Threshold | AR | FNR | P error | Domain<br/>0.70 | 28% | 8% | 6% | General<br/>0.90 | 47% | 3% | 2% | Medical<br/>0.95 | 63% | 1% | 0.6% | Aerospace]
+    M["ROC Trade-off Analysis:<br/>Threshold, AR, FNR, P_error, Domain<br/>0.70: 28%, 8%, 6%, General<br/>0.90: 47%, 3%, 2%, Medical<br/>0.95: 63%, 1%, 0.6%, Aerospace"]
 
-    N[Probabilistic Guarantee:<br/>P error ≤ P LLM_error | U ≤ θ × 1 - AR + P symbolic_error<br/>≈ FNR × 1 - AR + 0 symbolic verified]
+    N["Probabilistic Guarantee:<br/>P_error ≤ P(LLM_error given U ≤ θ) × (1 - AR) + P_symbolic_error<br/>≈ FNR × (1 - AR) + 0 (symbolic verified)"]
 
     style A fill:#ADD8E6,stroke:#333,stroke-width:2px
     style B fill:#FFA500,stroke:#333,stroke-width:2px
@@ -673,12 +673,12 @@ flowchart TD
     D --> E
 
     subgraph Breakdown["Performance Breakdown by Level"]
-        T["Component | L1 | L2 | L3 | L4 | L5 | Overall"]
-        L1["Pure LLM | 78% | 65% | 14% | 38% | 42% | 47%"]
-        L2["+Extraction | 83% | 65% | 18% | 38% | 42% | 49%"]
-        L3["+Allen's IA | 83% | 92% | 18% | 45% | 50% | 58%"]
-        L4["+STN | 85% | 92% | 88% | 76% | 75% | 79%"]
-        L5["+Provenance | 85% | 92% | 88% | 76% | 81% | 84%"]
+        T["Component: L1, L2, L3, L4, L5, Overall"]
+        L1["Pure LLM: 78%, 65%, 14%, 38%, 42%, 47%"]
+        L2["+Extraction: 83%, 65%, 18%, 38%, 42%, 49%"]
+        L3["+Allen's IA: 83%, 92%, 18%, 45%, 50%, 58%"]
+        L4["+STN: 85%, 92%, 88%, 76%, 75%, 79%"]
+        L5["+Provenance: 85%, 92%, 88%, 76%, 81%, 84%"]
     end
 
     subgraph Insights["Key Insights"]
