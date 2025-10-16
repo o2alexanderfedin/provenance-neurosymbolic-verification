@@ -33,9 +33,9 @@ flowchart TD
     K -.->|Refinement Loop| B
     L --> F1
 
-    M[ROC Trade-off Analysis:<br/>Threshold | AR | FNR | P error | Domain<br/>0.70 | 28% | 8% | 6% | General<br/>0.90 | 47% | 3% | 2% | Medical<br/>0.95 | 63% | 1% | 0.6% | Aerospace]
+    M["ROC Trade-off Analysis:<br/>Threshold, AR, FNR, P_error, Domain<br/>0.70: 28%, 8%, 6%, General<br/>0.90: 47%, 3%, 2%, Medical<br/>0.95: 63%, 1%, 0.6%, Aerospace"]
 
-    N[Probabilistic Guarantee:<br/>P error ≤ P LLM_error | U ≤ θ × 1 - AR + P symbolic_error<br/>≈ FNR × 1 - AR + 0 symbolic verified]
+    N["Probabilistic Guarantee:<br/>P_error ≤ P(LLM_error given U ≤ θ) × (1 - AR) + P_symbolic_error<br/>≈ FNR × (1 - AR) + 0 (symbolic verified)"]
 
     style A fill:#ADD8E6,stroke:#333,stroke-width:2px
     style B fill:#FFA500,stroke:#333,stroke-width:2px

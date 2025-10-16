@@ -1,5 +1,5 @@
 flowchart TD
-    A[Natural Language Problem Description<br/>Example: Find the shortest path in the graph<br/>where all edges have weight less than 10<br/>and the path avoids nodes A and B] --> B[LLM Semantic Parser Fine-Tuned<br/>Multi-DSL: Prolog | ASP | SMT-LIB | PDDL | Datalog]
+    A[Natural Language Problem Description<br/>Example: Find the shortest path in the graph<br/>where all edges have weight less than 10<br/>and the path avoids nodes A and B] --> B["LLM Semantic Parser Fine-Tuned<br/>Multi-DSL: Prolog, ASP, SMT-LIB, PDDL, Datalog"]
 
     B --> B1[Uncertainty Quantification]
     B1 --> B1a[LLM Confidence Score<br/>softmax probabilities]
@@ -31,7 +31,7 @@ flowchart TD
     F3 --> G
     F4 --> G
 
-    G --> G1[Semiring Selection:<br/>ℕ[X] polynomial | Boolean why | Custom temporal]
+    G --> G1["Semiring Selection:<br/>ℕ[X] polynomial, Boolean why, Custom temporal"]
     G1 --> G2[Polynomial Construction<br/>During Symbolic Execution]
     G2 --> G3[Provenance Verification<br/>Homomorphism Check]
     G3 --> H[Explanation Generator]
