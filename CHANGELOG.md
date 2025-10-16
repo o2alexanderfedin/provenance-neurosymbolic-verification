@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.0.0] - 2025-10-16
 
 ### Added
-- Complete academic paper (11,366 words) ready for AAAI 2026 submission
+- Complete academic paper (11,366 words) ready for AAAI 2027 submission
 - Working prototype demonstrating temporal reasoning (3,891 lines Python)
 - 10 publication-quality Mermaid diagrams
 - Comprehensive research foundation (100+ papers analyzed, 163+ references)
@@ -59,6 +59,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-**Target Publication:** AAAI 2026 (August 2025 deadline)
+**Target Publication:** AAAI 2027 (August 2026 deadline)
 
 **Repository:** https://github.com/o2alexanderfedin/provenance-neurosymbolic-verification

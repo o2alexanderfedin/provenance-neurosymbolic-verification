@@ -14,7 +14,7 @@
 - "Temporal Reasoning with Guarantees: LLM-Driven Logic Programming with Provenance Tracking"
 
 **Target Venues** (in priority order):
-1. **AAAI 2026** (Association for Advancement of AI) - Broad neuro-symbolic audience
+1. **AAAI 2027** (Association for Advancement of AI) - Broad neuro-symbolic audience
 2. **IJCAI 2026** (International Joint Conference on AI) - International reach
 3. **NeurIPS 2026** (ML conference with formal methods track)
 4. **ICML 2026** (Machine Learning with theory emphasis)
@@ -1175,8 +1175,8 @@ Target: 60-80 references covering:
 **Total**: 24-33 weeks (6-8 months) from start to submission
 
 **Target Submission Deadlines**:
-- AAAI 2026: August 2025 (abstract), September 2025 (full paper)
+- AAAI 2027: August 2026 (abstract), September 2026 (full paper)
 - IJCAI 2026: January 2026
 - NeurIPS 2026: May 2026
 
-**Recommendation**: Target AAAI 2026 (August/September 2025 submission) for maximum impact, allows 6 months for experimentation + writing starting from current date.
+**Recommendation**: Target AAAI 2027 (August/September 2026 submission) for maximum impact, allows 6 months for experimentation + writing starting from current date.

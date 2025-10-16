@@ -356,7 +356,7 @@ This paper presents a comprehensive, rigorous, and practical contribution to neu
 
 The paper advances the field from research prototypes to deployable technology for safety-critical systems—enabling AI deployment where it matters most but has strictest requirements. All claims are substantiated with quantitative evidence, all datasets and code will be publicly released, and the computational budget is accessible to mid-size organizations.
 
-**Ready for author review and submission to AAAI 2026, IJCAI 2026, or NeurIPS 2025 Neuro-Symbolic Track.**
+**Ready for author review and submission to AAAI 2027, IJCAI 2027, or NeurIPS 2026 Neuro-Symbolic Track.**
 
 ---
 

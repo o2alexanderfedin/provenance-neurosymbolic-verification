@@ -250,7 +250,7 @@ See `diagrams/README.md` for more options.
 
 ## 🎯 Target Publication
 
-**Primary:** AAAI 2026 (deadline: August 2025)
+**Primary:** AAAI 2027 (deadline: August 2026)
 
 **Alternatives:**
 - IJCAI 2026

@@ -515,7 +515,7 @@ This directory contains comprehensive experimental validation specifications for
 4. **Analysis**: Statistical testing, failure mode analysis
 
 ### Long-Term (6-12 months)
-1. **Publication**: Submit to AAAI 2026 (August/September 2025)
+1. **Publication**: Submit to AAAI 2027 (August/September 2026)
 2. **Dataset Release**: Public launch with documentation
 3. **Community**: Workshop organization, benchmark challenges
 4. **Extensions**: Multilingual, additional domains, real-time provenance

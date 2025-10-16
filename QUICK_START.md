@@ -464,7 +464,7 @@ Contact details in `PROJECT_INDEX.md` Section "Contact & Collaboration"
 2. ⏳ Execute experimental validation (24 weeks, see `experimental_design.md`)
 3. ⏳ Update paper with experimental results
 4. ⏳ Internal review and revision
-5. ⏳ Submit to AAAI 2026 (deadline: August 2025)
+5. ⏳ Submit to AAAI 2027 (deadline: August 2026)
 
 ### Goal: Deploy in Production
 

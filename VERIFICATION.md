@@ -256,7 +256,7 @@ paper_research/
 - [ ] Internal revision
 
 ### Long-term (Planned)
-- [ ] Submit to AAAI 2026 (Aug 2025)
+- [ ] Submit to AAAI 2027 (Aug 2026)
 - [ ] Respond to peer reviews
 - [ ] Camera-ready preparation
 - [ ] Conference presentation
@@ -315,7 +315,7 @@ All deliverables created, verified, and ready for:
 
 **Date Completed:** 2025-10-16
 
-**Next Milestone:** AAAI 2026 submission (August 2025)
+**Next Milestone:** AAAI 2027 submission (August 2026)
 
 ---
 
