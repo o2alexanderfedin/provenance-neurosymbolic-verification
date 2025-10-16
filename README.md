@@ -75,7 +75,6 @@ provenance-neurosymbolic-verification/
 ├── PROJECT_INDEX.md             # Complete project overview
 ├── QUICK_START.md               # Role-based quick start guide
 ├── VERIFICATION.md              # Quality checklist
-├── PATH_STRUCTURE.md            # Path reference guide
 │
 ├── paper_main.md                # Complete academic paper ⭐
 ├── PAPER_SUMMARY.md             # Executive summary

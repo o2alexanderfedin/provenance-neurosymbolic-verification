@@ -19,7 +19,7 @@ This repository contains a comprehensive academic research project investigating
 
 ## Project Statistics
 
-- **Total Files Created:** 61
+- **Total Files Created:** 60
 - **Total Size:** 1.4 MB
 - **Total Lines of Code/Documentation:** 27,785 lines
 - **Research Papers Analyzed:** 2 comprehensive surveys (temporal verification, logic programming)
@@ -100,7 +100,6 @@ provenance-neurosymbolic-verification/
 ├── paper_main.md                          # Complete paper (11,366 words)
 ├── paper_metadata.json                    # Structured metadata
 ├── PAPER_SUMMARY.md                       # Executive summary
-├── PATH_STRUCTURE.md                      # Path reference guide
 ├── PROJECT_INDEX.md                       # This file - Complete index
 ├── QUICK_START.md                         # Role-based quick start guide
 ├── README.md                              # Project overview
@@ -108,7 +107,7 @@ provenance-neurosymbolic-verification/
 ├── VERIFICATION.md                        # Quality checklist
 └── VERSION                                # Version number (1.0.0)
 
-Total: 5 directories, 61 files (~27,785 lines)
+Total: 5 directories, 60 files (~27,500 lines)
 ```
 
 ---
