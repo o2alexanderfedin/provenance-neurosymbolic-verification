@@ -7,6 +7,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2025-10-16
+
+### Changed
+- **Author Attribution**
+  - Added authors (Alex Fedin and AI Hive®) to all major documents
+  - Updated paper_main.md: replaced placeholder author and affiliation with actual names
+  - Updated all README files in subdirectories (research/, diagrams/, prototype/, experimental_design/)
+  - Updated summary documents (PAPER_SUMMARY.md, QUICK_START.md, VERIFICATION.md)
+  - Fixed BibTeX citation placeholders with actual author names in PROJECT_INDEX.md and EXPERIMENTAL_VALIDATION_SUMMARY.md
+  - Updated conference year from 2026 to 2027 in BibTeX citations
+
+### Fixed
+- **Documentation Completeness**
+  - Removed all author placeholder text from 9 files
+  - Ensured consistent author attribution across all entry-point documents
+  - Updated affiliation to "O2 Services"
+
 ## [1.0.1] - 2025-10-16
 
 ### Added
