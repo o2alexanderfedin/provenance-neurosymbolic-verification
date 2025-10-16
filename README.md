@@ -1,5 +1,10 @@
 # Provenance-Guided Neuro-Symbolic Reasoning: Research Project
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Paper](https://img.shields.io/badge/paper-AAAI%202026-red.svg)](paper_main.md)
+[![GitHub](https://img.shields.io/github/stars/o2alexanderfedin/provenance-neurosymbolic-verification?style=social)](https://github.com/o2alexanderfedin/provenance-neurosymbolic-verification)
+
 **Complete academic research on integrating LLMs with formal verification through executable logic programs**
 
 **GitHub Repository:** https://github.com/o2alexanderfedin/provenance-neurosymbolic-verification
