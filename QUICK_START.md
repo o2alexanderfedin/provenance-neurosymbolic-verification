@@ -1,5 +1,6 @@
 # Quick Start Guide: Provenance-Guided Neuro-Symbolic Reasoning Research
 
+**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®<br/>
 **For researchers, practitioners, and industry partners looking to quickly understand and use this research.**
 
 ---

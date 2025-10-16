@@ -4,6 +4,8 @@
 
 # Hybrid Neuro-Symbolic Temporal Reasoning Prototype
 
+**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®
+
 A proof-of-concept implementation demonstrating hybrid neuro-symbolic architecture for temporal reasoning, combining LLM-based extraction with symbolic Allen's Interval Algebra reasoning.
 
 ## Overview

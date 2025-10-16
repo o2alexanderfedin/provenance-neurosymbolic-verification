@@ -4,6 +4,7 @@
 
 # LLM Formal Code Generation Research: Comprehensive Summary
 
+**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®<br/>
 **Research Date**: 2025-10-16<br/>
 **Output Location**: `research/`<br/>
 **Files Generated**: 17 research documents

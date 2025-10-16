@@ -1,8 +1,8 @@
 # Provenance-Guided Neuro-Symbolic Reasoning: Integrating Large Language Models with Formal Verification for Safety-Critical Applications
 
-**Authors:** [To be filled - placeholder for now]
+**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®
 
-**Affiliation:** [To be filled - placeholder for now]
+**Affiliation:** O2 Services
 
 ---
 

@@ -1,7 +1,7 @@
 # Project Verification Checklist
 
-**Location:** Project root directory
-
+**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®<br/>
+**Location:** Project root directory<br/>
 **Date:** 2025-10-16
 
 ---

@@ -4,6 +4,8 @@
 
 # System Architecture Diagrams - Usage Guide
 
+**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®
+
 This directory contains all 10 publication-quality diagrams for the neuro-symbolic AI academic paper on temporal reasoning.
 
 ## Directory Contents
