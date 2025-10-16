@@ -1,3 +1,7 @@
+**Navigation**: [🏠 Home](../README.md) | [📄 Paper](../paper_main.md) | [🚀 Quick Start](../QUICK_START.md) | [📑 Index](../PROJECT_INDEX.md)
+
+---
+
 # Hybrid Neuro-Symbolic Temporal Reasoning Prototype
 
 A proof-of-concept implementation demonstrating hybrid neuro-symbolic architecture for temporal reasoning, combining LLM-based extraction with symbolic Allen's Interval Algebra reasoning.

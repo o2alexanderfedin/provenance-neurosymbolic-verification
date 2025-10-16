@@ -1,3 +1,7 @@
+**Navigation**: [🏠 Home](../README.md) | [📄 Paper](../paper_main.md) | [🚀 Quick Start](../QUICK_START.md) | [📑 Index](../PROJECT_INDEX.md)
+
+---
+
 # System Architecture Diagrams - Usage Guide
 
 This directory contains all 10 publication-quality diagrams for the neuro-symbolic AI academic paper on temporal reasoning.

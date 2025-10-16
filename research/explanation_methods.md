@@ -1,3 +1,7 @@
+**Navigation**: [🏠 Home](../README.md) | [📄 Paper](../paper_main.md) | [🚀 Quick Start](../QUICK_START.md) | [📑 Index](../PROJECT_INDEX.md)
+
+---
+
 # Explanation Generation Methods in Formal Verification: A Technique Taxonomy
 
 ## Overview

@@ -1,3 +1,7 @@
+**Navigation**: [🏠 Home](../README.md) | [📄 Paper](../paper_main.md) | [🚀 Quick Start](../QUICK_START.md) | [📑 Index](../PROJECT_INDEX.md)
+
+---
+
 # Academic Paper Outline: Neuro-Symbolic AI with Provenance-Based Explanation and Formal Verification
 
 ## Paper Metadata

@@ -1,9 +1,13 @@
+**Navigation**: [🏠 Home](../README.md) | [📄 Paper](../paper_main.md) | [🚀 Quick Start](../QUICK_START.md) | [📑 Index](../PROJECT_INDEX.md)
+
+---
+
 # References: DSL Research for Formal Verification and LLM Integration
 
 ## Primary Research Papers Analyzed
 
 ### Paper 1: Temporal Verification (Temporal Reasoning Applications)
-**Source**: `../compass_artifact_wf-4b0cea25-846d-4e20-ad15-8816028eef6c_text_markdown.md`
+**Source**: Temporal reasoning research paper
 
 **Key Findings**:
 - 346 aviation deaths from temporal failures (Boeing 737 MAX, Überlingen collision)
@@ -28,7 +32,7 @@
 ---
 
 ### Paper 2: Logic Programming and Neuro-Symbolic AI
-**Source**: `../compass_artifact_wf-bf16ed0b-79fa-4e1d-ba87-d5a7183cca67_text_markdown.md`
+**Source**: Neuro-symbolic AI research paper
 
 **Key Findings - Neuro-Symbolic Revolution (2023-2025)**:
 - **167 papers** (2020-2024 PRISMA review): Logic programming + LLM integration
@@ -155,7 +159,7 @@
 
 ## Cslib Repository Analysis
 
-**Source**: `../../cslib/` (Lean 4 formal verification library)
+**Source**: Lean 4 formal verification library
 
 **Key Examples**:
 

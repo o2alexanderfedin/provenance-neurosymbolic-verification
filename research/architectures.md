@@ -1,3 +1,7 @@
+**Navigation**: [🏠 Home](../README.md) | [📄 Paper](../paper_main.md) | [🚀 Quick Start](../QUICK_START.md) | [📑 Index](../PROJECT_INDEX.md)
+
+---
+
 # Neuro-Symbolic Architecture Patterns (2023-2025)
 
 ## Overview
@@ -816,4 +820,14 @@ This document identifies and categorizes architectural patterns in neuro-symboli
 
 ## References
 
-See references_neurosymbolic.md for complete citation list with URLs.
+See [references_neurosymbolic.md](./references_neurosymbolic.md) for complete citation list with URLs.
+
+---
+
+## See Also
+
+- [Neuro-Symbolic Systems](./neuro_symbolic_systems.md) - Detailed system implementations
+- [References: Neuro-Symbolic AI](./references_neurosymbolic.md) - Complete bibliography
+- [Provenance Systems](./provenance_systems.md) - Formal foundations for explainability
+- [Explanation Methods](./explanation_methods.md) - Techniques for generating explanations
+- [Experimental Design](../experimental_design/experimental_design.md) - Validation methodology

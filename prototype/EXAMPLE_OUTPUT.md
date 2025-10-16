@@ -1,3 +1,7 @@
+**Navigation**: [🏠 Home](../README.md) | [📄 Paper](../paper_main.md) | [🚀 Quick Start](../QUICK_START.md) | [📑 Index](../PROJECT_INDEX.md)
+
+---
+
 # Example Output: Hybrid Temporal Reasoning System
 
 This document shows example outputs from the hybrid neuro-symbolic temporal reasoning prototype, demonstrating the key capabilities of the system.

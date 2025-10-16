@@ -1,8 +1,12 @@
+**Navigation**: [🏠 Home](../README.md) | [📄 Paper](../paper_main.md) | [🚀 Quick Start](../QUICK_START.md) | [📑 Index](../PROJECT_INDEX.md)
+
+---
+
 # LLM Formal Code Generation Research: Comprehensive Summary
 
-**Research Date**: October 15, 2025
-**Output Location**: `./`
-**Files Generated**: 4 core documents + summary
+**Research Date**: 2024-12-20<br/>
+**Output Location**: `research/`<br/>
+**Files Generated**: 17 research documents
 
 ---
 

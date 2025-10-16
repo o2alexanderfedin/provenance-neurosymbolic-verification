@@ -1,3 +1,7 @@
+**Navigation**: [🏠 Home](../README.md) | [📄 Paper](../paper_main.md) | [🚀 Quick Start](../QUICK_START.md) | [📑 Index](../PROJECT_INDEX.md)
+
+---
+
 # DSL Tradeoffs: Expressiveness vs Learnability vs LLM-Friendliness
 
 ## Executive Summary

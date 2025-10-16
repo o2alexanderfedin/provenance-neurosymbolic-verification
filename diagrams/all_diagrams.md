@@ -1,3 +1,7 @@
+**Navigation**: [🏠 Home](../README.md) | [📄 Paper](../paper_main.md) | [🚀 Quick Start](../QUICK_START.md) | [📑 Index](../PROJECT_INDEX.md)
+
+---
+
 # All System Architecture Diagrams - Mermaid Syntax
 
 This document contains all 10 diagrams for the neuro-symbolic AI academic paper in Mermaid format.
