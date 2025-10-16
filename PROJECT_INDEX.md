@@ -33,68 +33,77 @@ This repository contains a comprehensive academic research project investigating
 ## Directory Structure
 
 ```
-paper_research/
-├── Core Research Files (13 documents)
+provenance-neurosymbolic-verification/
+├── README.md                              # Project overview
+├── PROJECT_INDEX.md                       # This file - Complete index
+├── QUICK_START.md                         # Role-based quick start guide
+├── VERIFICATION.md                        # Quality checklist
+├── PATH_STRUCTURE.md                      # Path reference guide
+│
+├── Paper Files (4 documents)
+│   ├── paper_main.md                      # Complete paper (11,366 words)
+│   ├── PAPER_SUMMARY.md                   # Executive summary
+│   ├── paper_metadata.json                # Structured metadata
+│   └── references_compiled.bib            # BibTeX references
+│
+├── research/                              # Core Research (17 documents)
 │   ├── neuro_symbolic_systems.md          # 18 systems surveyed
 │   ├── benchmarks.md                      # 14 benchmarks analyzed
 │   ├── architectures.md                   # 5 architecture patterns
-│   ├── references_neurosymbolic.md        # 163 references
 │   ├── dsl_taxonomy.md                    # 16 DSLs across 7 categories
 │   ├── dsl_design_patterns.md             # 15 integration patterns
 │   ├── dsl_tradeoffs.md                   # Comparison matrices
-│   ├── references_dsl.md                  # DSL references
 │   ├── llm_performance.md                 # Model performance matrix
 │   ├── generation_techniques.md           # Prompting & fine-tuning
 │   ├── error_analysis.md                  # 13 error categories
-│   ├── references_codegen.md              # Code generation references
-│   └── RESEARCH_SUMMARY.md                # Executive overview
-│
-├── Explanation & Provenance (4 documents)
 │   ├── explanation_methods.md             # Technique taxonomy
 │   ├── provenance_systems.md              # Semiring frameworks
 │   ├── trust_verification.md              # Soundness & certification
+│   ├── RESEARCH_SUMMARY.md                # Executive overview
+│   ├── references_neurosymbolic.md        # Neuro-symbolic references
+│   ├── references_dsl.md                  # DSL references
+│   ├── references_codegen.md              # Code generation references
 │   └── references_explanation.md          # Provenance references
 │
-├── Paper Synthesis (4 documents)
+├── paper_development/                     # Paper Synthesis (4 documents)
 │   ├── synthesis.md                       # Key themes & contradictions
 │   ├── key_results.md                     # Top 20 quantitative findings
 │   ├── research_gaps.md                   # Experimental validation needs
 │   └── paper_outline.md                   # Detailed paper structure
 │
-├── Experimental Design (4 documents)
+├── experimental_design/                   # Experimental Design (5 documents)
 │   ├── experimental_design.md             # Complete methodology
 │   ├── benchmark_design.md                # 5-level temporal benchmark
 │   ├── evaluation_metrics.md              # Metrics & statistical tests
-│   └── architecture_diagrams.md           # Diagram specifications
+│   ├── architecture_diagrams.md           # Diagram specifications
+│   └── EXPERIMENTAL_VALIDATION_SUMMARY.md # Validation summary
 │
-├── The Academic Paper (4 documents)
-│   ├── paper_main.md                      # Complete paper (11,366 words)
-│   ├── references_compiled.bib            # BibTeX references
-│   ├── paper_metadata.json                # Structured metadata
-│   └── PAPER_SUMMARY.md                   # Paper executive summary
-│
-├── Diagrams (13 files)
-│   ├── diagram1.mmd → diagram10.mmd       # Individual Mermaid diagrams
+├── diagrams/                              # Publication Diagrams (13 files)
+│   ├── diagram1.mmd                       # Overall system architecture
+│   ├── diagram2.mmd                       # Temporal reasoning
+│   ├── diagram3.mmd                       # Multi-DSL fine-tuning
+│   ├── diagram4.mmd                       # Provenance-guided generation
+│   ├── diagram5.mmd                       # Uncertainty verification
+│   ├── diagram6.mmd                       # Temporal provenance example
+│   ├── diagram7.mmd                       # Multi-domain performance
+│   ├── diagram8.mmd                       # User study results
+│   ├── diagram9.mmd                       # Dataset construction
+│   ├── diagram10.mmd                      # Ablation study
 │   ├── all_diagrams.md                    # All diagrams compiled
 │   └── README.md                          # Rendering instructions
 │
-├── Prototype Implementation (12 files)
-│   ├── temporal_core.py                   # Allen's Interval Algebra
-│   ├── llm_interface.py                   # Mock LLM with errors
-│   ├── provenance.py                      # Provenance tracking
-│   ├── hybrid_reasoner.py                 # Main integration layer
-│   ├── test_cases.py                      # 20 temporal test cases
-│   ├── run_experiments.py                 # Experimental evaluation
-│   ├── test_cases.json                    # Test suite export
-│   ├── README.md                          # Setup & usage guide
-│   ├── EXAMPLE_OUTPUT.md                  # Example system outputs
-│   ├── PROTOTYPE_SUMMARY.md               # High-level overview
-│   ├── requirements.txt                   # Dependencies (none!)
-│   └── [Individual test data files]
-│
-└── Index & Navigation
-    ├── PROJECT_INDEX.md                   # This file
-    └── QUICK_START.md                     # How to use this research
+└── prototype/                             # Working Implementation (12 files)
+    ├── temporal_core.py                   # Allen's Interval Algebra
+    ├── llm_interface.py                   # Mock LLM with errors
+    ├── hybrid_reasoner.py                 # Main integration layer
+    ├── provenance.py                      # Provenance tracking
+    ├── test_cases.py                      # 20 temporal test cases
+    ├── run_experiments.py                 # Experimental evaluation
+    ├── test_cases.json                    # Test suite export
+    ├── requirements.txt                   # Dependencies (none!)
+    ├── README.md                          # Setup & usage guide
+    ├── EXAMPLE_OUTPUT.md                  # Example system outputs
+    └── PROTOTYPE_SUMMARY.md               # High-level overview
 
 ```
 

@@ -64,17 +64,19 @@
 ## 📁 Project Structure
 
 ```
-paper_research/
+provenance-neurosymbolic-verification/
 ├── README.md                    # This file
 ├── PROJECT_INDEX.md             # Complete project overview
 ├── QUICK_START.md               # Role-based quick start guide
+├── VERIFICATION.md              # Quality checklist
+├── PATH_STRUCTURE.md            # Path reference guide
 │
 ├── paper_main.md                # Complete academic paper ⭐
 ├── PAPER_SUMMARY.md             # Executive summary
 ├── paper_metadata.json          # Structured metadata
 ├── references_compiled.bib      # BibTeX references
 │
-├── Core Research/
+├── research/                    # Core research files
 │   ├── neuro_symbolic_systems.md
 │   ├── benchmarks.md
 │   ├── architectures.md
@@ -87,19 +89,21 @@ paper_research/
 │   ├── explanation_methods.md
 │   ├── provenance_systems.md
 │   ├── trust_verification.md
-│   └── [references_*.md files]
+│   ├── RESEARCH_SUMMARY.md
+│   └── references_*.md
 │
-├── Paper Development/
-│   ├── synthesis.md             # Research synthesis
-│   ├── key_results.md           # Top quantitative findings
-│   ├── research_gaps.md         # Experimental needs
-│   └── paper_outline.md         # Detailed structure
+├── paper_development/           # Paper synthesis files
+│   ├── synthesis.md
+│   ├── key_results.md
+│   ├── research_gaps.md
+│   └── paper_outline.md
 │
-├── Experimental Design/
-│   ├── experimental_design.md   # Complete methodology
-│   ├── benchmark_design.md      # 5-level temporal benchmark
-│   ├── evaluation_metrics.md    # Metrics & stats
-│   └── architecture_diagrams.md # Diagram specs
+├── experimental_design/         # Experimental methodology
+│   ├── experimental_design.md
+│   ├── benchmark_design.md
+│   ├── evaluation_metrics.md
+│   ├── architecture_diagrams.md
+│   └── EXPERIMENTAL_VALIDATION_SUMMARY.md
 │
 ├── diagrams/                    # 10 Mermaid diagrams
 │   ├── diagram1.mmd → diagram10.mmd
@@ -107,13 +111,17 @@ paper_research/
 │   └── README.md
 │
 └── prototype/                   # Working implementation ⭐
-    ├── temporal_core.py         # Allen's Interval Algebra
-    ├── llm_interface.py         # Mock LLM
-    ├── hybrid_reasoner.py       # Main system
-    ├── provenance.py            # Provenance tracking
-    ├── test_cases.py            # 20 test cases
-    ├── run_experiments.py       # Evaluation
-    └── README.md
+    ├── temporal_core.py
+    ├── llm_interface.py
+    ├── hybrid_reasoner.py
+    ├── provenance.py
+    ├── test_cases.py
+    ├── run_experiments.py
+    ├── test_cases.json
+    ├── requirements.txt
+    ├── README.md
+    ├── EXAMPLE_OUTPUT.md
+    └── PROTOTYPE_SUMMARY.md
 ```
 
 ---
