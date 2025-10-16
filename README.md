@@ -26,10 +26,10 @@
 ## 📊 What's Included
 
 ### Complete Academic Paper
-- **paper_main.md** - Full academic paper (10-11 pages, publication-ready)
-- **PAPER_SUMMARY.md** - Executive summary with key results
-- **paper_metadata.json** - Structured metadata
-- **references_compiled.bib** - 55+ BibTeX citations
+- **[paper_main.md](paper_main.md)** - Full academic paper (10-11 pages, publication-ready)
+- **[PAPER_SUMMARY.md](PAPER_SUMMARY.md)** - Executive summary with key results
+- **[paper_metadata.json](paper_metadata.json)** - Structured metadata
+- **[references_compiled.bib](references_compiled.bib)** - 55+ BibTeX citations
 
 ### Research Foundation (17 documents)
 - Neuro-symbolic systems survey (18 systems, 163 references)
