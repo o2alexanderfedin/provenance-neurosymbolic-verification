@@ -1,4 +1,4 @@
-flowchart LR
+flowchart TD
     A[Natural Language with Temporal Content<br/>Example: Patient admitted at 10:00 AM.<br/>Blood culture within 3 hours.<br/>Antibiotics within 1 hour of culture.<br/>Lab results in 24-48 hours.<br/>Adjustment within 4 hours of results.] --> B[LLM Temporal Extraction]
 
     B --> B1[Entity Recognition:<br/>Events: admission, blood_culture,<br/>antibiotics, lab_results, adjustment<br/>Times: 10:00 AM, +3h, +1h, +24-48h, +4h]

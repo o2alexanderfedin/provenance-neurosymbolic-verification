@@ -110,7 +110,7 @@ flowchart TD
 **Type**: Horizontal Flow with Parallel Tracks
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[Natural Language with Temporal Content<br/>Example: Patient admitted at 10:00 AM.<br/>Blood culture within 3 hours.<br/>Antibiotics within 1 hour of culture.<br/>Lab results in 24-48 hours.<br/>Adjustment within 4 hours of results.] --> B[LLM Temporal Extraction]
 
     B --> B1[Entity Recognition:<br/>Events: admission, blood_culture,<br/>antibiotics, lab_results, adjustment<br/>Times: 10:00 AM, +3h, +1h, +24-48h, +4h]
@@ -173,7 +173,7 @@ flowchart LR
 **Type**: Horizontal Pipeline
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[Dataset Construction<br/>Pre-Processing] --> A1[Datalog: 1,000 examples]
     A --> A2[Prolog: 1,000 examples]
     A --> A3[ASP: 1,000 examples]
@@ -587,7 +587,7 @@ flowchart TD
 **Type**: Horizontal Pipeline with Quality Control
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[Data Sources] --> A1[Clinical Notes<br/>MIMIC-III de-identified<br/>350 problems]
     A --> A2[Financial Reports<br/>10-K filings<br/>250 problems]
     A --> A3[Aerospace Mission Logs<br/>NASA<br/>200 problems]
