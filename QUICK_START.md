@@ -627,6 +627,6 @@ Framework addresses FDA, SEC, DO-178C, and GDPR requirements with certified expl
 
 ---
 
-*Last Updated: 2024-12-20*
-*Version: 1.0*
+*Last Updated: 2024-12-20*<br/>
+*Version: 1.0*<br/>
 *Status: Research complete, experimental validation planned*

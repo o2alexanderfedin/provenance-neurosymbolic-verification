@@ -7,8 +7,7 @@
 
 **Complete academic research on integrating LLMs with formal verification through executable logic programs**
 
-**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®
-
+**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®<br/>
 **GitHub Repository:** https://github.com/o2alexanderfedin/provenance-neurosymbolic-verification
 
 ---
@@ -338,6 +337,6 @@ See `PROJECT_INDEX.md` for contact information.
 
 ---
 
-*Last Updated: 2024-12-20*
-*Version: 1.0.0*
+*Last Updated: 2024-12-20*<br/>
+*Version: 1.0.0*<br/>
 *Status: Research complete, experimental validation planned*

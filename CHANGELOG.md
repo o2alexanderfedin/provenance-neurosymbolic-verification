@@ -1,6 +1,6 @@
 # Changelog
 
-**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®
+**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®<br/>
 
 All notable changes to this project will be documented in this file.
 

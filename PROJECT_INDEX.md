@@ -2,8 +2,7 @@
 
 **Academic Paper on LLM-Generated Executable Logic Programs for Formal Verification**
 
-**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®
-
+**Authors:** Alex Fedin ([af@O2.services](mailto:af@O2.services)) and AI Hive®<br/>
 **GitHub Repository:** https://github.com/o2alexanderfedin/provenance-neurosymbolic-verification
 
 ---
