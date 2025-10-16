@@ -2,6 +2,8 @@
 
 **Academic Paper on LLM-Generated Executable Logic Programs for Formal Verification**
 
+**GitHub Repository:** https://github.com/o2alexanderfedin/provenance-neurosymbolic-verification
+
 ---
 
 ## Executive Summary

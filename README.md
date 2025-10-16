@@ -2,6 +2,8 @@
 
 **Complete academic research on integrating LLMs with formal verification through executable logic programs**
 
+**GitHub Repository:** https://github.com/o2alexanderfedin/provenance-neurosymbolic-verification
+
 ---
 
 ## 🚀 Quick Start
