@@ -1,0 +1,55 @@
+flowchart TD
+    subgraph Timeline["Sepsis Treatment Timeline (hours from admission)"]
+        A["A: Patient Admission<br/>t=0h<br/>Suspected Sepsis"]
+        B["B: Blood Culture<br/>t≤3h<br/>Constraint: within 3h of A"]
+        C["C: Antibiotics<br/>t≤4h<br/>Constraint: within 1h of B"]
+        D["D: Lab Results<br/>t=24-48h<br/>Constraint: 24-48h after B"]
+        E["E: Antibiotic Adjustment<br/>t≤52h<br/>Constraint: within 4h of D"]
+        F["F: ICU Escalation Decision<br/>t≤10h<br/>Constraint: if no improvement<br/>within 6h of C"]
+    end
+
+    A -->|3h deadline| B
+    B -->|1h deadline| C
+    B -->|24-48h wait| D
+    D -->|4h deadline| E
+    C -->|6h monitoring| F
+
+    A -.->|Provenance Chain| B
+    B -.->|Provenance Chain| C
+    B -.->|Provenance Chain| D
+    D -.->|Provenance Chain| E
+    C -.->|Provenance Chain| F
+
+    subgraph Provenance["Provenance Polynomial"]
+        P1["Π_E = temporal_composition Π_A, 3h, 1h, 24-48h, 4h"]
+        P2["= A ⊕ A ⊗ 3h ⊕ A ⊗ 3h ⊗ 1h ⊕ ... ⊕ E"]
+        P3["Event E depends on cascade:<br/>A admission → B culture, +3h<br/>→ D results, +24-48h<br/>→ E adjustment, +4h<br/>Total: 28-52h or 52-66h"]
+    end
+
+    subgraph Counterfactual["Counterfactual Analysis"]
+        Q1["Query: If blood culture delayed by 1h<br/>to t=4h instead of t=3h,<br/>how are downstream events affected?"]
+        Q2["Original: A 0 → B 3 → C 4 → D 27-51 → E 31-55"]
+        Q3["Modified: A 0 → B 4 → C 5 → D 28-52 → E 32-56"]
+        Q4["Result: All downstream shift +1 hour<br/>Critical path: Still on schedule no violations"]
+    end
+
+    subgraph Explanation["Why was adjustment at 52h?"]
+        E1["1. Blood culture at t=3h within 3h deadline ✓"]
+        E2["2. Antibiotics at t=4h within 1h of culture ✓"]
+        E3["3. Lab results at t=48h maximum 48h window ⚠"]
+        E4["4. Adjustment at t=52h within 4h of results ✓"]
+        E5["Critical dependency: Lab result timing 48h<br/>determined adjustment timing.<br/>If lab at 24h, adjustment would be at 28h."]
+    end
+
+    style A fill:#90EE90,stroke:#333,stroke-width:2px
+    style B fill:#90EE90,stroke:#333,stroke-width:2px
+    style C fill:#90EE90,stroke:#333,stroke-width:2px
+    style D fill:#FFFF99,stroke:#333,stroke-width:2px
+    style E fill:#90EE90,stroke:#333,stroke-width:2px
+    style F fill:#90EE90,stroke:#333,stroke-width:2px
+    style Provenance fill:#E0F2F7,stroke:#333,stroke-width:2px
+    style Counterfactual fill:#FFF3E0,stroke:#333,stroke-width:2px
+    style Explanation fill:#F1F8E9,stroke:#333,stroke-width:2px
+
+    linkStyle 0,1,2,3,4 stroke:#FF6B6B,stroke-width:2px
+    linkStyle 5,6,7,8,9 stroke:#20B2AA,stroke-width:2px,stroke-dasharray: 5 5

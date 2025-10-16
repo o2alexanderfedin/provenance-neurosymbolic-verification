@@ -1,0 +1,47 @@
+flowchart LR
+    A[Dataset Construction<br/>Pre-Processing] --> A1[Datalog: 1,000 examples]
+    A --> A2[Prolog: 1,000 examples]
+    A --> A3[ASP: 1,000 examples]
+    A --> A4[SMT-LIB: 1,000 examples]
+    A --> A5[PDDL: 1,000 examples]
+
+    A1 --> B[Base Model<br/>Llama 3.1 8B<br/>Transformer decoder<br/>8 billion parameters]
+    A2 --> B
+    A3 --> B
+    A4 --> B
+    A5 --> B
+
+    B --> C1[Curriculum Stage 1: Datalog<br/>1,000 examples, Epochs: 3-5<br/>QLoRA: rank=16, alpha=32, dropout=0.1]
+    C1 --> C2[Model Checkpoint M1]
+
+    C2 --> D1[Curriculum Stage 2: Prolog<br/>1,000 Prolog + 200 Datalog review<br/>Transfer learning from M1]
+    D1 --> D2[Model Checkpoint M2]
+
+    D2 --> E1[Curriculum Stage 3: ASP<br/>1,000 ASP + 200 Prolog review<br/>Transfer learning from M2]
+    E1 --> E2[Model Checkpoint M3]
+
+    E2 --> F1[Curriculum Stage 4: SMT-LIB<br/>1,000 SMT-LIB + 200 ASP review<br/>Transfer learning from M3]
+    F1 --> F2[Model Checkpoint M4]
+
+    F2 --> G1[Curriculum Stage 5: PDDL<br/>1,000 PDDL + 200 SMT-LIB review<br/>Transfer learning from M4]
+    G1 --> G2[Final Model M_final]
+
+    G2 --> H[Evaluation<br/>Held-out test: 100 per DSL, 500 total<br/>Metrics: Pass@1, Pass@10,<br/>syntax errors, semantic correctness]
+
+    H --> I[Performance Report]
+
+    J[Comparison Panel] --> J1[Single-DSL Training:<br/>5 separate models<br/>5× training cost]
+    J --> J2[Multi-DSL Simultaneous:<br/>1 model, all DSLs at once<br/>Lower performance - task interference]
+    J --> J3[Multi-DSL Curriculum:<br/>1 model, sequential training<br/>Best trade-off - OUR APPROACH]
+
+    style A fill:#D3D3D3,stroke:#333,stroke-width:2px
+    style B fill:#FFCC80,stroke:#333,stroke-width:2px
+    style C1 fill:#E3F2FD,stroke:#333,stroke-width:2px
+    style D1 fill:#BBDEFB,stroke:#333,stroke-width:2px
+    style E1 fill:#90CAF9,stroke:#333,stroke-width:2px
+    style F1 fill:#64B5F6,stroke:#333,stroke-width:2px
+    style G1 fill:#42A5F5,stroke:#333,stroke-width:2px
+    style H fill:#90EE90,stroke:#333,stroke-width:2px
+    style J fill:#FFF3E0,stroke:#333,stroke-width:2px
+
+    linkStyle default stroke:#666,stroke-width:2px

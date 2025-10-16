@@ -1,0 +1,580 @@
+{
+  "test_suite": "Temporal Reasoning Test Cases",
+  "version": "1.0",
+  "total_tests": 20,
+  "tests": [
+    {
+      "id": "L1_MED_001",
+      "domain": "medical",
+      "level": 1,
+      "question": "What medical events occurred in this patient's timeline?",
+      "context": "Patient was admitted to the emergency room on Monday morning, received initial treatment, underwent surgery on Tuesday, and was discharged on Friday afternoon.",
+      "ground_truth_answer": "The medical events are: admission, initial treatment, surgery, and discharge.",
+      "ground_truth_events": [
+        "admission",
+        "treatment",
+        "surgery",
+        "discharge"
+      ],
+      "ground_truth_relations": [],
+      "expected_duration": null,
+      "difficulty": "easy",
+      "notes": "Basic event extraction from medical narrative"
+    },
+    {
+      "id": "L1_FIN_001",
+      "domain": "financial",
+      "level": 1,
+      "question": "Identify all financial events in the transaction history.",
+      "context": "The account was opened on January 1st. First deposit made on January 5th. Stock purchase executed on January 10th. Dividend received on January 15th.",
+      "ground_truth_answer": "Financial events: account opening, deposit, stock purchase, dividend receipt.",
+      "ground_truth_events": [
+        "account_opening",
+        "deposit",
+        "stock_purchase",
+        "dividend_receipt"
+      ],
+      "ground_truth_relations": [],
+      "expected_duration": null,
+      "difficulty": "easy",
+      "notes": "Extracting financial events from timeline"
+    },
+    {
+      "id": "L1_PRJ_001",
+      "domain": "project_management",
+      "level": 1,
+      "question": "What are the key project milestones?",
+      "context": "Project kickoff happened in Q1. Requirements gathering was completed. Design phase followed. Development started in Q2. Testing is ongoing.",
+      "ground_truth_answer": "Milestones: kickoff, requirements gathering, design, development start, testing.",
+      "ground_truth_events": [
+        "kickoff",
+        "requirements",
+        "design",
+        "development",
+        "testing"
+      ],
+      "ground_truth_relations": [],
+      "expected_duration": null,
+      "difficulty": "easy",
+      "notes": "Identifying project phases and milestones"
+    },
+    {
+      "id": "L1_TRV_001",
+      "domain": "travel",
+      "level": 1,
+      "question": "List all events in the travel itinerary.",
+      "context": "Departure from home at 6 AM. Airport check-in at 7 AM. Flight departure at 9 AM. Arrival at destination at 2 PM. Hotel check-in at 3 PM.",
+      "ground_truth_answer": "Travel events: home departure, airport check-in, flight departure, arrival, hotel check-in.",
+      "ground_truth_events": [
+        "home_departure",
+        "airport_checkin",
+        "flight_departure",
+        "arrival",
+        "hotel_checkin"
+      ],
+      "ground_truth_relations": [],
+      "expected_duration": null,
+      "difficulty": "easy",
+      "notes": "Extracting travel-related events"
+    },
+    {
+      "id": "L2_MED_001",
+      "domain": "medical",
+      "level": 2,
+      "question": "What is the correct temporal sequence of medical procedures?",
+      "context": "The patient was admitted on Monday, underwent surgery on Tuesday, spent two days in recovery, and was discharged on Friday.",
+      "ground_truth_answer": "Sequence: admission (Monday) \u2192 surgery (Tuesday) \u2192 recovery (Wed-Thu) \u2192 discharge (Friday).",
+      "ground_truth_events": [
+        "admission",
+        "surgery",
+        "recovery",
+        "discharge"
+      ],
+      "ground_truth_relations": [
+        [
+          "admission",
+          "before",
+          "surgery"
+        ],
+        [
+          "surgery",
+          "before",
+          "recovery"
+        ],
+        [
+          "recovery",
+          "before",
+          "discharge"
+        ]
+      ],
+      "expected_duration": null,
+      "difficulty": "medium",
+      "notes": "Ordering medical events with explicit temporal markers"
+    },
+    {
+      "id": "L2_FIN_001",
+      "domain": "financial",
+      "level": 2,
+      "question": "In what order did the financial transactions occur?",
+      "context": "Before investing in stocks, the client opened a brokerage account. After the account was funded, the first trade was executed. The dividend payment came after the trade.",
+      "ground_truth_answer": "Order: account opening \u2192 funding \u2192 trade execution \u2192 dividend payment.",
+      "ground_truth_events": [
+        "account_opening",
+        "funding",
+        "trade",
+        "dividend"
+      ],
+      "ground_truth_relations": [
+        [
+          "account_opening",
+          "before",
+          "funding"
+        ],
+        [
+          "funding",
+          "before",
+          "trade"
+        ],
+        [
+          "trade",
+          "before",
+          "dividend"
+        ]
+      ],
+      "expected_duration": null,
+      "difficulty": "medium",
+      "notes": "Ordering with explicit before/after indicators"
+    },
+    {
+      "id": "L2_PRJ_001",
+      "domain": "project_management",
+      "level": 2,
+      "question": "What is the dependency order of project tasks?",
+      "context": "Task A must be completed before Task B can start. Task B and Task C can run concurrently. Task D requires both B and C to be finished first.",
+      "ground_truth_answer": "Dependencies: A before B, A before C, B before D, C before D. B and C can overlap.",
+      "ground_truth_events": [
+        "task_A",
+        "task_B",
+        "task_C",
+        "task_D"
+      ],
+      "ground_truth_relations": [
+        [
+          "task_A",
+          "before",
+          "task_B"
+        ],
+        [
+          "task_A",
+          "before",
+          "task_C"
+        ],
+        [
+          "task_B",
+          "before",
+          "task_D"
+        ],
+        [
+          "task_C",
+          "before",
+          "task_D"
+        ]
+      ],
+      "expected_duration": null,
+      "difficulty": "hard",
+      "notes": "Complex dependencies with concurrent tasks"
+    },
+    {
+      "id": "L2_GEN_001",
+      "domain": "general",
+      "level": 2,
+      "question": "Which events overlap in time?",
+      "context": "The conference started at 9 AM. The keynote speech began at 9:30 AM during the conference. The networking session started at 11 AM while the conference was still ongoing.",
+      "ground_truth_answer": "The keynote overlaps with the conference. The networking session overlaps with the conference.",
+      "ground_truth_events": [
+        "conference",
+        "keynote",
+        "networking"
+      ],
+      "ground_truth_relations": [
+        [
+          "keynote",
+          "during",
+          "conference"
+        ],
+        [
+          "networking",
+          "during",
+          "conference"
+        ]
+      ],
+      "expected_duration": null,
+      "difficulty": "medium",
+      "notes": "Identifying temporal overlaps"
+    },
+    {
+      "id": "L2_MED_002",
+      "domain": "medical",
+      "level": 2,
+      "question": "Describe the temporal relationships in the treatment plan.",
+      "context": "The patient completed the first round of chemotherapy. After a two-week break, the second round began. The patient was in remission between rounds.",
+      "ground_truth_answer": "First chemotherapy \u2192 break/remission \u2192 second chemotherapy.",
+      "ground_truth_events": [
+        "chemo_round1",
+        "break",
+        "chemo_round2"
+      ],
+      "ground_truth_relations": [
+        [
+          "chemo_round1",
+          "before",
+          "break"
+        ],
+        [
+          "break",
+          "before",
+          "chemo_round2"
+        ]
+      ],
+      "expected_duration": null,
+      "difficulty": "medium",
+      "notes": "Sequential events with explicit gaps"
+    },
+    {
+      "id": "L2_PRJ_002",
+      "domain": "project_management",
+      "level": 2,
+      "question": "How are the meetings scheduled relative to each other?",
+      "context": "The planning meeting happens first thing Monday morning. The design review is scheduled for Tuesday, after the planning is complete. The client presentation is on Friday, but only after both planning and design review are done.",
+      "ground_truth_answer": "Planning (Monday) \u2192 Design Review (Tuesday) \u2192 Client Presentation (Friday).",
+      "ground_truth_events": [
+        "planning",
+        "design_review",
+        "client_presentation"
+      ],
+      "ground_truth_relations": [
+        [
+          "planning",
+          "before",
+          "design_review"
+        ],
+        [
+          "design_review",
+          "before",
+          "client_presentation"
+        ]
+      ],
+      "expected_duration": null,
+      "difficulty": "medium",
+      "notes": "Meeting scheduling with dependencies"
+    },
+    {
+      "id": "L3_MED_001",
+      "domain": "medical",
+      "level": 3,
+      "question": "How long was the patient's hospital stay?",
+      "context": "Patient was admitted on Monday at 8 AM and discharged on Friday at 2 PM.",
+      "ground_truth_answer": "The hospital stay was 4 days and 6 hours (102 hours total).",
+      "ground_truth_events": [
+        "admission",
+        "discharge"
+      ],
+      "ground_truth_relations": [
+        [
+          "admission",
+          "before",
+          "discharge"
+        ]
+      ],
+      "expected_duration": 367200,
+      "difficulty": "medium",
+      "notes": "Calculate duration between two timepoints"
+    },
+    {
+      "id": "L3_PRJ_001",
+      "domain": "project_management",
+      "level": 3,
+      "question": "What was the total meeting time?",
+      "context": "The meeting had three parts: a 45-minute presentation, a 30-minute Q&A session, and a 15-minute wrap-up.",
+      "ground_truth_answer": "The total meeting time was 90 minutes (1.5 hours).",
+      "ground_truth_events": [
+        "presentation",
+        "qa_session",
+        "wrapup"
+      ],
+      "ground_truth_relations": [
+        [
+          "presentation",
+          "before",
+          "qa_session"
+        ],
+        [
+          "qa_session",
+          "before",
+          "wrapup"
+        ]
+      ],
+      "expected_duration": 5400,
+      "difficulty": "easy",
+      "notes": "Sum of sequential durations"
+    },
+    {
+      "id": "L3_MED_002",
+      "domain": "medical",
+      "level": 3,
+      "question": "How long does the complete treatment take?",
+      "context": "The treatment protocol consists of a 2-hour infusion, followed by a 1-hour observation period, and then a 30-minute consultation.",
+      "ground_truth_answer": "The complete treatment takes 3.5 hours (210 minutes).",
+      "ground_truth_events": [
+        "infusion",
+        "observation",
+        "consultation"
+      ],
+      "ground_truth_relations": [
+        [
+          "infusion",
+          "before",
+          "observation"
+        ],
+        [
+          "observation",
+          "before",
+          "consultation"
+        ]
+      ],
+      "expected_duration": 12600,
+      "difficulty": "easy",
+      "notes": "Sequential medical procedure durations"
+    },
+    {
+      "id": "L3_PRJ_002",
+      "domain": "project_management",
+      "level": 3,
+      "question": "What is the total project duration?",
+      "context": "The project has four phases: planning (2 weeks), design (3 weeks), development (8 weeks), and testing (2 weeks).",
+      "ground_truth_answer": "The total project duration is 15 weeks.",
+      "ground_truth_events": [
+        "planning",
+        "design",
+        "development",
+        "testing"
+      ],
+      "ground_truth_relations": [
+        [
+          "planning",
+          "before",
+          "design"
+        ],
+        [
+          "design",
+          "before",
+          "development"
+        ],
+        [
+          "development",
+          "before",
+          "testing"
+        ]
+      ],
+      "expected_duration": 9072000,
+      "difficulty": "medium",
+      "notes": "Multi-phase project duration"
+    },
+    {
+      "id": "L3_TRV_001",
+      "domain": "travel",
+      "level": 3,
+      "question": "How long is the entire journey?",
+      "context": "The journey consists of a 3-hour flight, a 45-minute layover, and then a 2-hour connecting flight.",
+      "ground_truth_answer": "The total journey time is 5 hours and 45 minutes.",
+      "ground_truth_events": [
+        "first_flight",
+        "layover",
+        "second_flight"
+      ],
+      "ground_truth_relations": [
+        [
+          "first_flight",
+          "before",
+          "layover"
+        ],
+        [
+          "layover",
+          "before",
+          "second_flight"
+        ]
+      ],
+      "expected_duration": 20700,
+      "difficulty": "easy",
+      "notes": "Multi-leg journey duration"
+    },
+    {
+      "id": "L3_ACD_001",
+      "domain": "academic",
+      "level": 3,
+      "question": "How long is the academic semester?",
+      "context": "Classes start on September 1st and run for 14 weeks. Then there's a 1-week break, followed by a 2-week exam period.",
+      "ground_truth_answer": "The semester is 17 weeks long.",
+      "ground_truth_events": [
+        "classes",
+        "break",
+        "exams"
+      ],
+      "ground_truth_relations": [
+        [
+          "classes",
+          "before",
+          "break"
+        ],
+        [
+          "break",
+          "before",
+          "exams"
+        ]
+      ],
+      "expected_duration": 10281600,
+      "difficulty": "medium",
+      "notes": "Academic timeline calculation"
+    },
+    {
+      "id": "L3_FIN_001",
+      "domain": "financial",
+      "level": 3,
+      "question": "When can the funds be withdrawn?",
+      "context": "Funds deposited today have a 3-day processing period, followed by a 5-day hold period before they can be withdrawn.",
+      "ground_truth_answer": "Funds can be withdrawn after 8 days.",
+      "ground_truth_events": [
+        "deposit",
+        "processing",
+        "hold",
+        "withdrawal"
+      ],
+      "ground_truth_relations": [
+        [
+          "deposit",
+          "before",
+          "processing"
+        ],
+        [
+          "processing",
+          "before",
+          "hold"
+        ],
+        [
+          "hold",
+          "before",
+          "withdrawal"
+        ]
+      ],
+      "expected_duration": 691200,
+      "difficulty": "medium",
+      "notes": "Sequential waiting periods"
+    },
+    {
+      "id": "L2_MED_003",
+      "domain": "medical",
+      "level": 2,
+      "question": "How do the treatments relate temporally?",
+      "context": "Physical therapy started on Week 1. Medication was prescribed during Week 2 while PT continued. Both treatments ended simultaneously after Week 6.",
+      "ground_truth_answer": "PT starts first, medication starts during PT, both finish together.",
+      "ground_truth_events": [
+        "physical_therapy",
+        "medication"
+      ],
+      "ground_truth_relations": [
+        [
+          "physical_therapy",
+          "started-by",
+          "medication"
+        ],
+        [
+          "physical_therapy",
+          "finished-by",
+          "medication"
+        ]
+      ],
+      "expected_duration": null,
+      "difficulty": "hard",
+      "notes": "Complex overlapping treatments"
+    },
+    {
+      "id": "L3_PRJ_003",
+      "domain": "project_management",
+      "level": 3,
+      "question": "What is the critical path duration?",
+      "context": "Task A takes 5 days. Tasks B and C can start after A and run in parallel - B takes 3 days, C takes 4 days. Task D requires both B and C to complete and takes 2 days.",
+      "ground_truth_answer": "Critical path is A(5) \u2192 C(4) \u2192 D(2) = 11 days.",
+      "ground_truth_events": [
+        "task_A",
+        "task_B",
+        "task_C",
+        "task_D"
+      ],
+      "ground_truth_relations": [
+        [
+          "task_A",
+          "before",
+          "task_B"
+        ],
+        [
+          "task_A",
+          "before",
+          "task_C"
+        ],
+        [
+          "task_B",
+          "before",
+          "task_D"
+        ],
+        [
+          "task_C",
+          "before",
+          "task_D"
+        ]
+      ],
+      "expected_duration": 950400,
+      "difficulty": "hard",
+      "notes": "Parallel tasks with critical path"
+    },
+    {
+      "id": "L3_MED_003",
+      "domain": "medical",
+      "level": 3,
+      "question": "What is the total treatment time from start to finish?",
+      "context": "Initial consultation lasted 30 minutes. Lab tests were ordered and took 2 hours to process. Doctor reviewed results for 15 minutes. Treatment session was 1 hour. Follow-up appointment scheduled after 1 week.",
+      "ground_truth_answer": "Immediate treatment: 3 hours 45 minutes. Total timeline including follow-up: 1 week and 3 hours 45 minutes.",
+      "ground_truth_events": [
+        "consultation",
+        "lab_tests",
+        "review",
+        "treatment",
+        "followup"
+      ],
+      "ground_truth_relations": [
+        [
+          "consultation",
+          "before",
+          "lab_tests"
+        ],
+        [
+          "lab_tests",
+          "before",
+          "review"
+        ],
+        [
+          "review",
+          "before",
+          "treatment"
+        ],
+        [
+          "treatment",
+          "before",
+          "followup"
+        ]
+      ],
+      "expected_duration": 13500,
+      "difficulty": "hard",
+      "notes": "Multi-stage medical process with delays"
+    }
+  ]
+}

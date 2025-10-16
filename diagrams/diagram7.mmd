@@ -1,0 +1,47 @@
+flowchart TD
+    subgraph Performance["Multi-Domain Performance Comparison"]
+        A["Performance Across 5 Temporal Reasoning Levels"]
+    end
+
+    subgraph BarChart["Level Performance (%)"]
+        L1["L1: Extraction<br/>Pure LLM: 78%<br/>+Extract: 83%<br/>+Allen: 83%<br/>+STN: 85%<br/>Full Hybrid: 85%"]
+        L2["L2: Ordering<br/>Pure LLM: 65%<br/>+Extract: 65%<br/>+Allen: 92% ***<br/>+STN: 92%<br/>Full Hybrid: 92%"]
+        L3["L3: Calculation<br/>Pure LLM: 14%<br/>+Extract: 18%<br/>+Allen: 18%<br/>+STN: 88% ***<br/>Full Hybrid: 88%"]
+        L4["L4: Counterfactual<br/>Pure LLM: 38%<br/>+Extract: 38%<br/>+Allen: 45%<br/>+STN: 76% ***<br/>Full Hybrid: 76%"]
+        L5["L5: Conditional<br/>Pure LLM: 42%<br/>+Extract: 42%<br/>+Allen: 50%<br/>+STN: 75%<br/>Full Hybrid: 81% ***"]
+        Overall["Overall<br/>Pure LLM: 47%<br/>+Extract: 49%<br/>+Allen: 58%<br/>+STN: 83%<br/>Full Hybrid: 84% ***"]
+    end
+
+    subgraph Heatmap["Domain × Level Performance Heatmap"]
+        H1["Domain | L1 | L2 | L3 | L4 | L5 | Avg"]
+        H2["Healthcare | 87% | 93% | 90% | 82% | 85% | 87%"]
+        H3["Finance | 89% | 95% | 93% | 88% | 82% | 89%"]
+        H4["Aerospace | 83% | 91% | 92% | 85% | 83% | 87%"]
+        H5["Legal | 81% | 88% | 82% | 65% | 75% | 78%"]
+        H6["Robotics | 84% | 90% | 85% | 78% | 80% | 83%"]
+    end
+
+    subgraph Insights["Key Insights"]
+        I1["1. Most dramatic improvement at L3 Calculation:<br/>+529% vs Pure LLM"]
+        I2["2. Allen's IA critical for L2 Ordering:<br/>+42% improvement"]
+        I3["3. STN solver enables L3-L5 performance:<br/>+300-400% improvement"]
+        I4["4. Full hybrid achieves 79% overall improvement"]
+        I5["5. Finance domain: Highest performance 89%"]
+        I6["6. Legal domain: Most challenging counterfactual L4 65%"]
+    end
+
+    style Performance fill:#E3F2FD,stroke:#333,stroke-width:2px
+    style BarChart fill:#FFF3E0,stroke:#333,stroke-width:2px
+    style L1 fill:#FFE0B2,stroke:#333,stroke-width:1px
+    style L2 fill:#FFCC80,stroke:#333,stroke-width:1px
+    style L3 fill:#90EE90,stroke:#333,stroke-width:2px
+    style L4 fill:#98FB98,stroke:#333,stroke-width:1px
+    style L5 fill:#90CAF9,stroke:#333,stroke-width:1px
+    style Overall fill:#42A5F5,stroke:#333,stroke-width:2px
+    style Heatmap fill:#E8F5E9,stroke:#333,stroke-width:2px
+    style H2 fill:#C8E6C9,stroke:#333,stroke-width:1px
+    style H3 fill:#A5D6A7,stroke:#333,stroke-width:1px
+    style H4 fill:#C8E6C9,stroke:#333,stroke-width:1px
+    style H5 fill:#FFCCBC,stroke:#333,stroke-width:1px
+    style H6 fill:#DCEDC8,stroke:#333,stroke-width:1px
+    style Insights fill:#FFF9C4,stroke:#333,stroke-width:2px

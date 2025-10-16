@@ -1,0 +1,49 @@
+flowchart TD
+    subgraph RadarMetrics["Radar Chart: 6 Explanation Quality Metrics (0-1 scale)"]
+        M1["Metric 1: Faithfulness (verified)<br/>Provenance: 0.97<br/>s(CASP): 0.95<br/>xASP: 0.93<br/>LLM Post-Hoc: 0.68<br/>Attention: 0.52"]
+        M2["Metric 2: Comprehensibility (quiz)<br/>Provenance: 0.78<br/>s(CASP): 0.84 ★<br/>xASP: 0.72<br/>LLM Post-Hoc: 0.76<br/>Attention: 0.58"]
+        M3["Metric 3: Debugging Success<br/>Provenance: 0.82<br/>s(CASP): 0.88 ★<br/>xASP: 0.76<br/>LLM Post-Hoc: 0.64<br/>Attention: 0.42"]
+        M4["Metric 4: Trust Calibration<br/>Provenance: 0.78<br/>s(CASP): 0.82<br/>xASP: 0.74<br/>LLM Post-Hoc: 0.52<br/>Attention: 0.38"]
+        M5["Metric 5: Time Efficiency (normalized)<br/>Provenance: 0.72<br/>s(CASP): 0.85 ★<br/>xASP: 0.58<br/>LLM Post-Hoc: 0.70<br/>Attention: 0.45"]
+        M6["Metric 6: Overall Quality<br/>Provenance: 0.81<br/>s(CASP): 0.87 ★<br/>xASP: 0.75<br/>LLM Post-Hoc: 0.66<br/>Attention: 0.47"]
+    end
+
+    subgraph Comparison["Method Comparison"]
+        C1["Provenance Polynomials<br/>Strengths: Faithfulness 0.97, Debugging 0.82<br/>Regulatory compliant >95% faithfulness"]
+        C2["s(CASP) Justification<br/>Strengths: Best overall 0.87, Best comprehensibility 0.84<br/>Natural language templates"]
+        C3["xASP Explanation<br/>Strengths: Balanced performance<br/>Moderate faithfulness 0.93"]
+        C4["LLM Post-Hoc<br/>Weaknesses: Low faithfulness 0.68<br/>Over-trust problem trust: 0.52"]
+        C5["Attention Visualization<br/>Weaknesses: Lowest across all metrics<br/>Not interpretable faithfulness: 0.52"]
+    end
+
+    subgraph Statistics["Statistical Significance (Tukey HSD)"]
+        S1["Provenance vs LLM Post-Hoc: p < 0.001 *** all metrics"]
+        S2["Provenance vs Attention: p < 0.001 *** all metrics"]
+        S3["s(CASP) vs LLM Post-Hoc: p < 0.001 *** all metrics"]
+        S4["Provenance vs s(CASP): p = 0.08 n.s. Comprehensibility"]
+        S5["Provenance vs s(CASP): p < 0.05 * Faithfulness"]
+    end
+
+    subgraph Findings["Key Findings"]
+        F1["1. Provenance-based methods Prov, s(CASP), xASP<br/>significantly outperform LLM post-hoc<br/>and attention on faithfulness"]
+        F2["2. s(CASP) best for comprehensibility 84%<br/>due to natural language templates"]
+        F3["3. Only provenance-based methods meet<br/>regulatory standards >95% faithfulness"]
+        F4["4. Trust calibration gap:<br/>Provenance 0.78 vs LLM 0.52<br/>LLM induces over-trust"]
+        F5["5. Debugging success strongly correlates<br/>with faithfulness r=0.89"]
+    end
+
+    style RadarMetrics fill:#E3F2FD,stroke:#333,stroke-width:2px
+    style M1 fill:#BBDEFB,stroke:#333,stroke-width:1px
+    style M2 fill:#90CAF9,stroke:#333,stroke-width:1px
+    style M3 fill:#64B5F6,stroke:#333,stroke-width:1px
+    style M4 fill:#42A5F5,stroke:#333,stroke-width:1px
+    style M5 fill:#2196F3,stroke:#333,stroke-width:1px
+    style M6 fill:#1976D2,stroke:#333,stroke-width:1px
+    style Comparison fill:#E8F5E9,stroke:#333,stroke-width:2px
+    style C1 fill:#A5D6A7,stroke:#333,stroke-width:2px
+    style C2 fill:#66BB6A,stroke:#333,stroke-width:2px
+    style C3 fill:#C5E1A5,stroke:#333,stroke-width:1px
+    style C4 fill:#FFCC80,stroke:#333,stroke-width:1px
+    style C5 fill:#FF8A65,stroke:#333,stroke-width:1px
+    style Statistics fill:#FFF3E0,stroke:#333,stroke-width:2px
+    style Findings fill:#FFF9C4,stroke:#333,stroke-width:2px

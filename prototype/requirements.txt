@@ -1,0 +1,34 @@
+# Hybrid Neuro-Symbolic Temporal Reasoning Prototype
+# Requirements file for Python dependencies
+
+# Core Python version: 3.8+
+
+# No external dependencies required for basic functionality
+# The prototype is designed to be self-contained for demonstration purposes
+
+# Optional dependencies for enhanced functionality:
+
+# For constraint solving (if extending beyond prototype):
+# python-constraint==1.4.0
+# z3-solver==4.12.2.0
+
+# For data handling:
+# numpy>=1.21.0
+# pandas>=1.3.0
+
+# For visualization (optional):
+# matplotlib>=3.4.0
+# networkx>=2.6.0
+
+# For testing:
+# pytest>=7.0.0
+# pytest-cov>=3.0.0
+
+# For development:
+# black>=22.0.0
+# flake8>=4.0.0
+# mypy>=0.950
+
+# Note: The current implementation uses only Python standard library
+# to ensure maximum portability and minimal setup requirements.
+# All core functionality works without additional installations.

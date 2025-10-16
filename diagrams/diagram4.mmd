@@ -1,0 +1,50 @@
+flowchart TD
+    A[Input:<br/>Natural Language Problem P<br/>Positive Examples E+<br/>Negative Examples E-<br/>Target DSL] --> B[Initial LLM Generation<br/>Iteration 0<br/>Few-shot prompting<br/>Constrained grammar]
+
+    B --> B1[DSL Program D_0]
+    B1 --> C[Symbolic Execution<br/>Execute D_0 on E+ and E-<br/>Record execution traces]
+
+    C --> D[Provenance Computation]
+    D --> D1[Compute Π+ for E+<br/>why-provenance - derivation path]
+    D --> D2[Compute Π- for E-<br/>why-not-provenance - blocking reason]
+
+    D1 --> E{Why-Provenance<br/>Analysis}
+    E -->|e+ not derived<br/>Π e+ = 0| E1[Extract missing<br/>predicates/rules<br/>Generate constraint:<br/>Must derive e+]
+
+    D2 --> F{Why-Not-Provenance<br/>Analysis}
+    F -->|e- incorrectly<br/>derived<br/>Π e- ≠ 0| F1[Extract spurious<br/>derivation path<br/>Generate constraint:<br/>Must NOT derive e-]
+
+    E1 --> G[Refinement Iteration i+1<br/>Combine positive & negative constraints<br/>Structured feedback to LLM]
+    F1 --> G
+
+    G --> G1[LLM generates D_i+1]
+
+    G1 --> H{Semantic Reversion<br/>Check<br/>Logic-LM++ Strategy}
+    H -->|D_i+1 worse<br/>than D_i| H1[Revert to D_i]
+    H -->|D_i+1 better| H2[Accept D_i+1]
+
+    H1 --> I{Convergence Check}
+    H2 --> I
+
+    I -->|All E+ derived correctly?<br/>AND All E- NOT derived?<br/>AND iterations < 3?| I1[Yes]
+    I -->|No| I2[Continue]
+
+    I1 --> J[Output:<br/>Final DSL Program D_final<br/>Provenance Certificate Π_final<br/>Number of iterations]
+
+    I2 --> C
+
+    K[Example Annotations:<br/>Problem: Find employees earning more than manager<br/>E+: alice, 120K, manager bob, 100K → derive employee alice<br/>E-: charlie, 80K, manager bob, 100K → NOT derive charlie<br/>Iteration 0: Wrong comparison less than instead of greater than<br/>Provenance feedback: e- derived via rule with less than, use greater than<br/>Iteration 1: Corrected comparison, all tests pass]
+
+    style A fill:#ADD8E6,stroke:#333,stroke-width:2px
+    style B fill:#FFA500,stroke:#333,stroke-width:2px
+    style C fill:#9370DB,stroke:#333,stroke-width:2px
+    style D fill:#20B2AA,stroke:#333,stroke-width:2px
+    style E fill:#FFFF00,stroke:#333,stroke-width:2px
+    style F fill:#FF6B6B,stroke:#333,stroke-width:2px
+    style G fill:#FFA500,stroke:#333,stroke-width:2px
+    style H fill:#FFCC80,stroke:#333,stroke-width:2px
+    style I fill:#90EE90,stroke:#333,stroke-width:2px
+    style J fill:#4682B4,stroke:#333,stroke-width:2px
+    style K fill:#F0F0F0,stroke:#333,stroke-width:1px,stroke-dasharray: 3 3
+
+    linkStyle 15,16 stroke:#666,stroke-width:2px,stroke-dasharray: 5 5

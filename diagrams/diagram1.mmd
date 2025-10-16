@@ -1,0 +1,72 @@
+flowchart TD
+    A[Natural Language Problem Description<br/>Example: Find the shortest path in the graph<br/>where all edges have weight less than 10<br/>and the path avoids nodes A and B] --> B[LLM Semantic Parser Fine-Tuned<br/>Multi-DSL: Prolog | ASP | SMT-LIB | PDDL | Datalog]
+
+    B --> B1[Uncertainty Quantification]
+    B1 --> B1a[LLM Confidence Score<br/>softmax probabilities]
+    B1 --> B1b[Multi-Sample Agreement<br/>N=5 samples]
+    B1 --> B1c[Parse-and-Regenerate<br/>Consistency Check]
+
+    B1a --> C{Confidence Gate<br/>U > threshold θ?}
+    B1b --> C
+    B1c --> C
+
+    C -->|Yes: High Uncertainty| E[Abstention with Proof Certificate]
+    C -->|No: Low Uncertainty| D[DSL Generation<br/>Constrained Grammar Enforcement<br/>Syntax Validation BNF Check]
+
+    E --> E1[Abstention Certificate:<br/>- Problem statement<br/>- Attempted DSL translation<br/>- Uncertainty signals<br/>- Reason for abstention<br/>- Partial information]
+
+    D --> F[Symbolic Reasoning Engine]
+
+    F --> F1[Prolog Interpreter<br/>SWI-Prolog]
+    F --> F2[ASP Grounder/Solver<br/>Clingo]
+    F --> F3[SMT Solver<br/>Z3]
+    F --> F4[Temporal Reasoning Module]
+
+    F4 --> F4a[Allen's Interval Algebra<br/>GQR]
+    F4 --> F4b[STN/STNU Solver<br/>Path Consistency]
+    F4 --> F4c[Temporal Provenance Tracker]
+
+    F1 --> G[Provenance Engine]
+    F2 --> G
+    F3 --> G
+    F4 --> G
+
+    G --> G1[Semiring Selection:<br/>ℕ[X] polynomial | Boolean why | Custom temporal]
+    G1 --> G2[Polynomial Construction<br/>During Symbolic Execution]
+    G2 --> G3[Provenance Verification<br/>Homomorphism Check]
+    G3 --> H[Explanation Generator]
+
+    H --> H1[Provenance Polynomial → Natural Language]
+    H --> H2[Justification Trees s-CASP style]
+    H --> H3[Temporal Timeline Visualization]
+    H --> H4[Proof Terms for Theorem Provers]
+
+    H1 --> I[Verification & Output]
+    H2 --> I
+    H3 --> I
+    H4 --> I
+
+    I --> I1[Formal Verification<br/>Kernel checking for Z3, Lean]
+    I1 --> I2[Final Result + Explanation +<br/>Provenance Certificate +<br/>Confidence Bounds]
+
+    I1 -->|Verification Failure| J[Refinement Loop<br/>Max 2-3 iterations<br/>Semantic reversion if worse]
+    J -.->|Error Feedback| B
+
+    style A fill:#ADD8E6,stroke:#333,stroke-width:2px
+    style B fill:#FFA500,stroke:#333,stroke-width:2px
+    style B1 fill:#FFCC80,stroke:#333,stroke-width:2px
+    style C fill:#FFFF00,stroke:#333,stroke-width:3px
+    style D fill:#90EE90,stroke:#333,stroke-width:2px
+    style E fill:#FF6B6B,stroke:#333,stroke-width:2px
+    style F fill:#9370DB,stroke:#333,stroke-width:2px
+    style G fill:#20B2AA,stroke:#333,stroke-width:2px
+    style H fill:#98FB98,stroke:#333,stroke-width:2px
+    style I fill:#4682B4,stroke:#333,stroke-width:2px
+    style J fill:#D3D3D3,stroke:#333,stroke-width:2px,stroke-dasharray: 5 5
+
+    classDef input fill:#ADD8E6,stroke:#333,stroke-width:2px
+    classDef llm fill:#FFA500,stroke:#333,stroke-width:2px
+    classDef symbolic fill:#9370DB,stroke:#333,stroke-width:2px
+    classDef provenance fill:#20B2AA,stroke:#333,stroke-width:2px
+    classDef output fill:#4682B4,stroke:#333,stroke-width:2px
+    classDef error fill:#FF6B6B,stroke:#333,stroke-width:2px

@@ -1,0 +1,51 @@
+flowchart TD
+    A[Input: Natural Language Problem] --> B[LLM Generation<br/>Generate DSL program D]
+
+    B --> C[Uncertainty Quantification<br/>Parallel Signals]
+
+    C --> C1[Signal 1:<br/>LLM Confidence<br/>Token-level log probabilities<br/>conf = exp mean log_prob_i]
+    C --> C2[Signal 2:<br/>Multi-Sample Agreement<br/>Generate N=5 samples<br/>agree = # matching / 5]
+    C --> C3[Signal 3:<br/>Parse-and-Regenerate<br/>D → NL → D'<br/>Check semantic equivalence]
+
+    C1 --> D[Uncertainty Fusion<br/>U = 0.3×1-conf + 0.5×1-agree + 0.2×1-consistent]
+    C2 --> D
+    C3 --> D
+
+    D --> E{Confidence Gate<br/>U > θ?<br/>Threshold Selection:<br/>General: θ=0.70<br/>Medical: θ=0.90<br/>Aerospace: θ=0.95}
+
+    E -->|Yes:<br/>High Uncertainty<br/>U > θ| F[Abstention Path]
+    E -->|No:<br/>Low Uncertainty<br/>U ≤ θ| G[Verification Path]
+
+    F --> F1[Generate Abstention Certificate:<br/>- Problem statement<br/>- Attempted DSL D<br/>- Uncertainty breakdown conf, agree, consistent<br/>- Uncertainty score U and threshold θ<br/>- Reason for abstention which signal<br/>- Partial information if any]
+
+    F1 --> F2[Output: Abstention Certificate]
+
+    G --> G1[Symbolic Execution of D<br/>Formal Verification<br/>Z3 proof checking, Lean type checking]
+
+    G1 --> H{Verification<br/>Result?}
+
+    H -->|Success| I[Output:<br/>Verified Result +<br/>Confidence Bounds]
+    H -->|Failure| J{Iterations<br/>< Max?}
+
+    J -->|Yes| K[Error Feedback to LLM]
+    J -->|No| L[Escalate to Abstention]
+
+    K -.->|Refinement Loop| B
+    L --> F1
+
+    M[ROC Trade-off Analysis:<br/>Threshold | AR | FNR | P error | Domain<br/>0.70 | 28% | 8% | 6% | General<br/>0.90 | 47% | 3% | 2% | Medical<br/>0.95 | 63% | 1% | 0.6% | Aerospace]
+
+    N[Probabilistic Guarantee:<br/>P error ≤ P LLM_error | U ≤ θ × 1 - AR + P symbolic_error<br/>≈ FNR × 1 - AR + 0 symbolic verified]
+
+    style A fill:#ADD8E6,stroke:#333,stroke-width:2px
+    style B fill:#FFA500,stroke:#333,stroke-width:2px
+    style C1 fill:#FFFF99,stroke:#333,stroke-width:2px
+    style C2 fill:#FFFF99,stroke:#333,stroke-width:2px
+    style C3 fill:#FFFF99,stroke:#333,stroke-width:2px
+    style D fill:#FFCC80,stroke:#333,stroke-width:2px
+    style E fill:#FFFF00,stroke:#333,stroke-width:3px
+    style F fill:#FF6B6B,stroke:#333,stroke-width:2px
+    style G fill:#9370DB,stroke:#333,stroke-width:2px
+    style I fill:#90EE90,stroke:#333,stroke-width:2px
+    style M fill:#E8F5E9,stroke:#333,stroke-width:1px
+    style N fill:#FFF9C4,stroke:#333,stroke-width:1px

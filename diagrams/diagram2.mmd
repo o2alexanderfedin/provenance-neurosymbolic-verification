@@ -1,0 +1,45 @@
+flowchart LR
+    A[Natural Language with Temporal Content<br/>Example: Patient admitted at 10:00 AM.<br/>Blood culture within 3 hours.<br/>Antibiotics within 1 hour of culture.<br/>Lab results in 24-48 hours.<br/>Adjustment within 4 hours of results.] --> B[LLM Temporal Extraction]
+
+    B --> B1[Entity Recognition:<br/>Events: admission, blood_culture,<br/>antibiotics, lab_results, adjustment<br/>Times: 10:00 AM, +3h, +1h, +24-48h, +4h]
+    B1 --> B2[Constraint Extraction:<br/>Qualitative: blood_culture BEFORE antibiotics<br/>Quantitative: blood_culture ≤ admission + 3h]
+
+    B2 --> C[Temporal Reasoning Tracks]
+
+    C --> D[Track 2A: Allen's Interval Algebra]
+    C --> E[Track 2B: STN/STNU Solver]
+    C --> F[Track 2C: Temporal Provenance Tracker]
+
+    D --> D1[Qualitative Relations:<br/>before, meets, overlaps,<br/>during, finishes, etc.]
+    D1 --> D2[Transitivity Computation<br/>Composition Table]
+    D2 --> D3[Path Consistency<br/>Constraint Network]
+
+    E --> E1[Quantitative Constraints:<br/>Constraint Graph Construction]
+    E1 --> E2[Path Consistency<br/>Floyd-Warshall variant]
+    E2 --> E3[Earliest/Latest Times<br/>Controllability Checking]
+
+    F --> F1[Dependency Tracking:<br/>Which events affect which]
+    F1 --> F2[Temporal Semiring<br/>Construction]
+    F2 --> F3[Provenance Polynomial<br/>Π_temporal]
+
+    D3 --> G[Integration & Consistency Check]
+    E3 --> G
+    F3 --> G
+
+    G --> G1{Qualitative &<br/>Quantitative<br/>Agree?}
+    G1 -->|Yes| H[Complete Temporal Solution]
+    G1 -->|No| G2[Conflict Resolution<br/>Symbolic Priority, Flag for Review]
+    G2 --> H
+
+    H --> H1[Timeline with Event Times<br/>Temporal Relations Explicit<br/>Provenance Dependency Graph<br/>Confidence Intervals if STNU]
+
+    H1 --> I[Timeline Visualization:<br/>0h: admission<br/>≤3h: blood_culture<br/>≤4h: antibiotics<br/>24-48h: lab_results<br/>28-52h or 52-66h: adjustment]
+
+    style A fill:#ADD8E6,stroke:#333,stroke-width:2px
+    style B fill:#FFA500,stroke:#333,stroke-width:2px
+    style D fill:#9370DB,stroke:#333,stroke-width:2px
+    style E fill:#9370DB,stroke:#333,stroke-width:2px
+    style F fill:#20B2AA,stroke:#333,stroke-width:2px
+    style G fill:#FFFF00,stroke:#333,stroke-width:2px
+    style H fill:#4682B4,stroke:#333,stroke-width:2px
+    style I fill:#98FB98,stroke:#333,stroke-width:2px

@@ -1,0 +1,51 @@
+flowchart LR
+    A[Data Sources] --> A1[Clinical Notes<br/>MIMIC-III de-identified<br/>350 problems]
+    A --> A2[Financial Reports<br/>10-K filings<br/>250 problems]
+    A --> A3[Aerospace Mission Logs<br/>NASA<br/>200 problems]
+    A --> A4[Legal Contracts<br/>anonymized<br/>150 problems]
+    A --> A5[Synthetic Generation<br/>templates<br/>50 problems]
+
+    A1 --> B[Temporal Entity Annotation<br/>Two expert annotators per domain<br/>Tool: Brat / custom web interface<br/>Entity types: date, time, duration, event, frequency]
+    A2 --> B
+    A3 --> B
+    A4 --> B
+    A5 --> B
+
+    B --> C{Inter-Annotator<br/>Agreement Check<br/>Cohen's κ ≥ 0.85?}
+
+    C -->|κ < 0.85| C1[Adjudication by<br/>Third Expert]
+    C -->|κ ≥ 0.85| D[Consensus Annotations]
+    C1 --> D
+
+    D --> E[Formal Specification Generation<br/>Convert to Allen's IA relations<br/>Generate STN constraints<br/>Create provenance ground truth]
+
+    E --> F{Automated Consistency<br/>Verification<br/>GQR + STN feasibility<br/>NL ↔ Formal match?}
+
+    F -->|Inconsistent| F1[Return to Annotation]
+    F -->|Consistent| G[Difficulty Calibration<br/>Pilot test with 3 baselines<br/>Target distribution:<br/>Easy: 30% success >70%<br/>Medium: 50% success 40-70%<br/>Hard: 20% success <40%]
+
+    F1 -.->|Rework| B
+
+    G --> H[Quality Control<br/>Cross-domain validation<br/>Adversarial examples edge cases<br/>Balanced representation<br/>domain, difficulty, level]
+
+    H --> I[Dataset Release<br/>GitHub repository<br/>JSON format with annotations<br/>Evaluation scripts<br/>Baseline results]
+
+    J[Quality Metrics:<br/>Inter-annotator agreement: κ = 0.87 range: 0.82-0.92<br/>Consistency rate: 98.5% 75 problems corrected<br/>Annotation time: 500 expert hours avg 6 min/problem<br/>Calibration accuracy: 92% matched target distribution]
+
+    style A fill:#E0E0E0,stroke:#333,stroke-width:2px
+    style A1 fill:#D3D3D3,stroke:#333,stroke-width:1px
+    style A2 fill:#D3D3D3,stroke:#333,stroke-width:1px
+    style A3 fill:#D3D3D3,stroke:#333,stroke-width:1px
+    style A4 fill:#D3D3D3,stroke:#333,stroke-width:1px
+    style A5 fill:#D3D3D3,stroke:#333,stroke-width:1px
+    style B fill:#FFFF99,stroke:#333,stroke-width:2px
+    style C fill:#FFA500,stroke:#333,stroke-width:2px
+    style D fill:#90EE90,stroke:#333,stroke-width:2px
+    style E fill:#9370DB,stroke:#333,stroke-width:2px
+    style F fill:#90EE90,stroke:#333,stroke-width:2px
+    style G fill:#87CEEB,stroke:#333,stroke-width:2px
+    style H fill:#98FB98,stroke:#333,stroke-width:2px
+    style I fill:#4682B4,stroke:#333,stroke-width:2px
+    style J fill:#F0F0F0,stroke:#333,stroke-width:1px
+
+    linkStyle 10 stroke:#FF6B6B,stroke-width:2px,stroke-dasharray: 5 5
