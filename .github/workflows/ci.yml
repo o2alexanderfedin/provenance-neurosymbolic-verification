@@ -10,6 +10,12 @@ permissions:
 
 jobs:
   prototype:
+    # The README promises Python 3.8+, so test the lowest promised version up
+    # to the newest stable release.
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ['3.8', '3.9', '3.10', '3.11', '3.12', '3.13', '3.14']
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -19,7 +25,7 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: ${{ matrix.python-version }}
 
       - name: Compile every module
         run: python -m py_compile *.py
