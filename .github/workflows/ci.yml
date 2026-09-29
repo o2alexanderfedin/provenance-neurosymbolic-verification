@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop, 'feature/**', 'bugfix/**', 'release/**', 'hotfix/**']
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  prototype:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: prototype
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Compile every module
+        run: python -m py_compile *.py
+
+      - name: Unit tests
+        run: python -m unittest discover -v -p 'test_*.py'
+
+      - name: Module demos exit cleanly
+        run: |
+          for m in temporal_core provenance llm_interface hybrid_reasoner run_experiments test_cases; do
+            echo "::group::$m"
+            python "$m.py"
+            echo "::endgroup::"
+          done
+
+      - name: Demos leave tracked files unchanged
+        run: git diff --exit-code
