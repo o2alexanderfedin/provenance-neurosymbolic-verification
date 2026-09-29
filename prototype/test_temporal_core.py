@@ -57,16 +57,21 @@ def true_composition_table():
 
 class CompositionTableTest(unittest.TestCase):
 
-    def test_every_listed_entry_matches_allens_definitions(self):
+    def test_every_cell_is_listed_and_matches_allens_definitions(self):
         truth = true_composition_table()
         self.assertEqual(len(truth), 13 * 13)
-        for rel1, row in AllenAlgebra.COMPOSITION_TABLE.items():
-            for rel2, listed in row.items():
-                with self.subTest(x_y=rel1.value, y_z=rel2.value):
-                    self.assertEqual(
-                        {r.value for r in listed},
-                        {r.value for r in truth[(rel1, rel2)]},
-                    )
+        checked = 0
+        for rel1, rel2 in itertools.product(R, repeat=2):
+            with self.subTest(x_y=rel1.value, y_z=rel2.value):
+                listed = AllenAlgebra.COMPOSITION_TABLE.get(rel1, {}).get(rel2)
+                self.assertIsNotNone(listed, "cell missing from the table")
+                self.assertEqual(
+                    {r.value for r in listed},
+                    {r.value for r in truth[(rel1, rel2)]},
+                )
+                self.assertEqual(AllenAlgebra.compose(rel1, rel2), listed)
+                checked += 1
+        self.assertEqual(checked, 13 * 13)
 
 
 class ConsistencyTest(unittest.TestCase):
@@ -81,6 +86,31 @@ class ConsistencyTest(unittest.TestCase):
 
         self.assertTrue(solver.propagate_constraints())
         self.assertEqual(solver.get_relation("A", "C"), {R.FINISHES})
+
+    def test_contradictory_scenario_is_reported_inconsistent(self):
+        # If A overlaps B and B overlaps C, then A starts first and B's start
+        # lies inside A, so A cannot lie strictly inside C.
+        solver = TemporalConstraintSolver()
+        solver.add_single_relation("A", "B", R.OVERLAPS)
+        solver.add_single_relation("B", "C", R.OVERLAPS)
+        solver.add_single_relation("A", "C", R.DURING)
+
+        self.assertFalse(solver.propagate_constraints())
+
+    def test_every_three_interval_network_matches_brute_force(self):
+        # For three intervals with one base relation per pair, path
+        # consistency decides satisfiability exactly, so the solver must agree
+        # with enumeration on all 13**3 networks.
+        truth = true_composition_table()
+        wrong = []
+        for ab, bc, ac in itertools.product(R, repeat=3):
+            solver = TemporalConstraintSolver()
+            solver.add_single_relation("A", "B", ab)
+            solver.add_single_relation("B", "C", bc)
+            solver.add_single_relation("A", "C", ac)
+            if solver.propagate_constraints() != (ac in truth[(ab, bc)]):
+                wrong.append((ab.value, bc.value, ac.value))
+        self.assertEqual(wrong, [])
 
 
 if __name__ == "__main__":
