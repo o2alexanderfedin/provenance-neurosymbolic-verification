@@ -9,6 +9,7 @@ from hybrid_reasoner import HybridTemporalReasoner, ExtractionLevel
 from test_cases import TestSuite, TemporalDomain
 from llm_interface import MockLLM
 import json
+import os
 import time
 from typing import Dict, List
 from collections import defaultdict
@@ -244,8 +245,10 @@ class ExperimentRunner:
                 print(f"Conflicts Detected: {result['conflicts_detected']}")
             print(f"Execution Time: {result['execution_time']:.3f}s")
 
-    def export_results(self, filepath: str = "/tmp/paper_research/prototype/experiment_results.json"):
-        """Export results to JSON file"""
+    def export_results(self, filepath: str = None):
+        """Export results to JSON file (default: experiment_results.json next to this script)"""
+        if filepath is None:
+            filepath = os.path.join(os.path.dirname(os.path.abspath(__file__)), "experiment_results.json")
         export_data = {
             "metrics": dict(self.metrics),
             "results": self.results,

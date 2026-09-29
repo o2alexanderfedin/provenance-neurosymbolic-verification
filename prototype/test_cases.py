@@ -13,6 +13,7 @@ from dataclasses import dataclass
 from typing import List, Optional
 from enum import Enum
 import json
+import os
 
 
 class TemporalDomain(Enum):
@@ -503,5 +504,6 @@ if __name__ == "__main__":
 
     # Export to JSON
     print("\n\nExporting test cases to JSON...")
-    suite.export_to_json("/tmp/paper_research/prototype/test_cases.json")
-    print("Exported to: /tmp/paper_research/prototype/test_cases.json")
+    export_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "test_cases.json")
+    suite.export_to_json(export_path)
+    print(f"Exported to: {export_path}")
