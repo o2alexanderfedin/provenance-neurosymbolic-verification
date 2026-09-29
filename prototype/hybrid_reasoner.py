@@ -44,14 +44,15 @@ class HybridTemporalReasoner:
     5. Tracks full provenance for explainability
     """
 
-    def __init__(self, llm_accuracy: str = "medium"):
+    def __init__(self, llm_accuracy: str = "medium", llm_seed: Optional[int] = None):
         """
         Initialize hybrid reasoner.
 
         Args:
             llm_accuracy: "high", "medium", or "low" - affects LLM error rate
+            llm_seed: seed for the mock LLM's simulated errors (None: unseeded)
         """
-        self.llm = MockLLM(accuracy_level=llm_accuracy)
+        self.llm = MockLLM(accuracy_level=llm_accuracy, seed=llm_seed)
         self.algebra = AllenAlgebra()
         self.provenance = ProvenanceTracker()
         self.task_counter = 0
@@ -255,7 +256,8 @@ class HybridTemporalReasoner:
         symbolic_numbers = set(re.findall(r'\d+', symbolic_answer))
 
         if llm_numbers and symbolic_numbers and llm_numbers != symbolic_numbers:
-            conflicts.append(f"Numerical mismatch: LLM found {llm_numbers}, symbolic found {symbolic_numbers}")
+            conflicts.append(f"Numerical mismatch: LLM found {sorted(llm_numbers, key=int)}, "
+                             f"symbolic found {sorted(symbolic_numbers, key=int)}")
 
         # Record verification
         verified = len(conflicts) == 0
@@ -483,7 +485,7 @@ if __name__ == "__main__":
     print("Hybrid Neuro-Symbolic Temporal Reasoner - Example")
     print("=" * 80)
 
-    reasoner = HybridTemporalReasoner(llm_accuracy="medium")
+    reasoner = HybridTemporalReasoner(llm_accuracy="medium", llm_seed=0)
 
     # Test case 1: Medical timeline
     print("\nTest 1: Medical Timeline")
