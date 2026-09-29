@@ -20,11 +20,11 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 class ScriptExportTest(unittest.TestCase):
 
-    def run_copy(self, script, output):
+    def run_copy(self, script, output, **env_overrides):
         with tempfile.TemporaryDirectory() as tmp:
             for path in glob.glob(os.path.join(HERE, "*.py")):
                 shutil.copy(path, tmp)
-            env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1")
+            env = dict(os.environ, PYTHONDONTWRITEBYTECODE="1", **env_overrides)
             # Run from somewhere else, so a path relative to the working
             # directory would not land in the copy either.
             done = subprocess.run(
@@ -45,6 +45,26 @@ class ScriptExportTest(unittest.TestCase):
     def test_run_experiments_script_exports_results(self):
         data = self.run_copy("run_experiments.py", "experiment_results.json")
         self.assertEqual(len(data["results"]), 20)
+
+    def test_run_experiments_gives_the_same_results_every_run(self):
+        # Wall-clock fields differ between runs by nature; everything else,
+        # including the mock LLM's answers, must be reproducible.
+        timing = {"execution_time", "avg_execution_time", "avg_time", "timestamp"}
+
+        def without_timing(value):
+            if isinstance(value, dict):
+                return {k: without_timing(v) for k, v in value.items() if k not in timing}
+            if isinstance(value, list):
+                return [without_timing(v) for v in value]
+            return value
+
+        # Different hash seeds, so anything that depends on set order shows up.
+        first = self.run_copy("run_experiments.py", "experiment_results.json",
+                              PYTHONHASHSEED="1")
+        second = self.run_copy("run_experiments.py", "experiment_results.json",
+                               PYTHONHASHSEED="2")
+        self.assertEqual(len(first["results"]), 20)
+        self.assertEqual(without_timing(first), without_timing(second))
 
 
 if __name__ == "__main__":

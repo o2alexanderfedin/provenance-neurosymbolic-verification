@@ -6,6 +6,7 @@ Provides realistic responses with intentional errors to demonstrate hybrid syste
 """
 
 import json
+import random
 import re
 from typing import Dict, List, Tuple, Optional
 from dataclasses import dataclass, asdict
@@ -64,14 +65,17 @@ class MockLLM:
     Includes realistic patterns of success and failure for different complexity levels.
     """
 
-    def __init__(self, accuracy_level: str = "medium"):
+    def __init__(self, accuracy_level: str = "medium", seed: Optional[int] = None):
         """
         Initialize mock LLM with different accuracy levels.
 
         Args:
             accuracy_level: "high", "medium", or "low" - affects error rate
+            seed: seed for the simulated errors; the same seed gives the same
+                answers every run. None draws a fresh seed.
         """
         self.accuracy_level = accuracy_level
+        self.rng = random.Random(seed)
         self.error_rates = {
             "high": 0.1,
             "medium": 0.3,
@@ -351,8 +355,7 @@ class MockLLM:
 
     def _should_introduce_error(self) -> bool:
         """Determine if an error should be introduced based on accuracy level"""
-        import random
-        return random.random() < self.current_error_rate
+        return self.rng.random() < self.current_error_rate
 
     def _generate_medical_answer(self, text: str, events: List[TemporalEvent],
                                  relations: List[TemporalRelation], level: ExtractionLevel) -> str:
@@ -421,7 +424,7 @@ if __name__ == "__main__":
     print("Mock LLM Interface - Test Cases")
     print("=" * 60)
 
-    llm = MockLLM(accuracy_level="medium")
+    llm = MockLLM(accuracy_level="medium", seed=0)
 
     # Test Case 1: Medical timeline
     print("\n1. Medical Timeline:")

@@ -23,8 +23,13 @@ class ExperimentRunner:
         self.results = []
         self.metrics = defaultdict(dict)
 
-    def run_all_tests(self, llm_accuracy: str = "medium", verbose: bool = True):
-        """Run all test cases with the hybrid reasoner"""
+    def run_all_tests(self, llm_accuracy: str = "medium", verbose: bool = True, seed: int = 0):
+        """Run all test cases with the hybrid reasoner.
+
+        seed fixes the mock LLM's simulated errors, so a rerun gives the same
+        results. The pure-LLM baseline gets seed + 1 so its errors are drawn
+        independently of the hybrid reasoner's.
+        """
         if verbose:
             print("=" * 80)
             print("RUNNING COMPREHENSIVE TEMPORAL REASONING EVALUATION")
@@ -33,8 +38,8 @@ class ExperimentRunner:
             print(f"Total Test Cases: {len(self.suite.test_cases)}")
             print("\n" + "=" * 80)
 
-        reasoner = HybridTemporalReasoner(llm_accuracy=llm_accuracy)
-        pure_llm = MockLLM(accuracy_level=llm_accuracy)
+        reasoner = HybridTemporalReasoner(llm_accuracy=llm_accuracy, llm_seed=seed)
+        pure_llm = MockLLM(accuracy_level=llm_accuracy, seed=seed + 1)
 
         for i, test_case in enumerate(self.suite.test_cases, 1):
             if verbose:
